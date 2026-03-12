@@ -1,0 +1,94 @@
+/* ── Welcome page ──────────────────────────────────────────────────────── */
+
+.wl-page {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-p-6);
+}
+
+.wl-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-gap-8);
+}
+
+.wl-logo {
+  margin-bottom: var(--spacing-gap-6);
+}
+
+.wl-title {
+  margin: 0 0 var(--spacing-gap-2);
+  color: var(--fg-primary);
+}
+
+.wl-subtitle {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+/* ── Cards ──────────────────────────────────────────────────────────────── */
+
+.wl-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-gap-6);
+  width: 100%;
+  max-width: 640px;
+}
+
+.wl-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-medium);
+  border: 1px solid var(--border-subtle);
+  padding: var(--spacing-p-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-4);
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.wl-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-subtle);
+}
+
+.wl-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-medium);
+  background: var(--bg-accent-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-information);
+  flex-shrink: 0;
+}
+
+.wl-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-2);
+}
+
+.wl-card__title {
+  margin: 0;
+  color: var(--fg-primary);
+}
+
+.wl-card__desc {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+.wl-card__footer {
+  display: flex;
+  justify-content: flex-end;
+}

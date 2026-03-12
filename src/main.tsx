@@ -1,5 +1,7 @@
 import { StrictMode, useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Welcome } from './welcome'
+import { Playground } from './playground'
 import './tokens.css'
 import './preview.css'
 import { Signal } from './components/Signal/Signal'
@@ -3929,7 +3931,7 @@ const STORIES: Story[] = [
 
 // ── App ───────────────────────────────────────────────────────
 
-function App() {
+function Library({ onBack }: { onBack: () => void }) {
   const defaultId = STORIES[0].id
 
   const [collapsed, setCollapsed] = useState<Set<string>>(
@@ -3989,6 +3991,32 @@ function App() {
   return (
     <div className="shell">
       <nav className="shell__sidebar">
+        <button
+          type="button"
+          onClick={onBack}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--spacing-gap-1)',
+            width: '100%',
+            background: 'none',
+            border: 'none',
+            borderBottom: '1px solid var(--border-subtle)',
+            padding: 'var(--spacing-p-2) var(--spacing-p-3)',
+            cursor: 'pointer',
+            color: 'var(--fg-secondary)',
+            fontFamily: 'var(--font-family-primary)',
+            fontSize: 'var(--type-caption-bold-size)',
+            fontWeight: 'var(--font-weight-bold)',
+            lineHeight: 'var(--type-caption-bold-line-height)',
+            letterSpacing: 'var(--type-caption-bold-tracking)',
+          }}
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M8 10L4 6l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Welcome
+        </button>
         <div className="shell__brand">
           <div className="shell__brand-text">
             ITSS Pipeline V2
@@ -4085,6 +4113,42 @@ function App() {
       </main>
     </div>
   )
+}
+
+function App() {
+  const getViewFromHash = (): 'welcome' | 'library' | 'playground' => {
+    const hash = window.location.hash.slice(1)
+    if (hash === 'playground') return 'playground'
+    if (hash === 'library' || STORIES.some(s => s.id === hash)) return 'library'
+    return 'welcome'
+  }
+
+  const [view, setView] = useState<'welcome' | 'library' | 'playground'>(getViewFromHash)
+
+  useEffect(() => {
+    const handler = () => setView(getViewFromHash())
+    window.addEventListener('hashchange', handler)
+    return () => window.removeEventListener('hashchange', handler)
+  }, [])
+
+  const goToWelcome = () => {
+    window.location.hash = ''
+    setView('welcome')
+  }
+
+  const goToLibrary = () => {
+    window.location.hash = 'library'
+    setView('library')
+  }
+
+  const goToPlayground = () => {
+    window.location.hash = 'playground'
+    setView('playground')
+  }
+
+  if (view === 'library')    return <Library    onBack={goToWelcome} />
+  if (view === 'playground') return <Playground onBack={goToWelcome} />
+  return <Welcome onLibrary={goToLibrary} onPlayground={goToPlayground} />
 }
 
 createRoot(document.getElementById('root')!).render(

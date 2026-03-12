@@ -1,0 +1,76 @@
+/* ── Playground layout ─────────────────────────────────────────────────── */
+
+.pg-back-bar {
+  background: var(--bg-inverse);
+  padding: var(--spacing-p-2) var(--spacing-p-6);
+  display: flex;
+  align-items: center;
+}
+
+.pg-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-on-inverse);
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-bold-size);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--type-caption-bold-tracking);
+  line-height: var(--type-caption-bold-line-height);
+  padding: 0;
+  opacity: 0.72;
+  transition: opacity 0.1s ease;
+}
+
+.pg-back-btn:hover {
+  opacity: 1;
+}
+
+.pg-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.pg-header-stack {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.pg-body {
+  display: flex;
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Matches the interactive Sidebar's collapsed icon-only width */
+.pg-sidebar-spacer {
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.pg-main {
+  flex: 1;
+  overflow: auto;
+  padding: var(--spacing-p-6);
+}
+
+.pg-main--grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-gap-6);
+  align-content: start;
+}
+
+.pg-empty-center {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-p-20) 0;
+}
