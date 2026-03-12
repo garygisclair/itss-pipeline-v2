@@ -1,5 +1,5 @@
 import './welcome.css'
-import { HubLogo } from './components/Logo/Logo'
+// import { HubLogo } from './components/Logo/Logo'
 import { Icon } from './components/Icon/Icon'
 import { CtaButton } from './components/Button/CtaButton'
 
@@ -13,9 +13,9 @@ export function Welcome({ onLibrary, onPlayground }: WelcomeProps) {
     <div className="wl-page">
 
       <div className="wl-hero">
-        <div className="wl-logo">
+        {/* <div className="wl-logo">
           <HubLogo width={120} />
-        </div>
+        </div> */}
         <h1 className="itss-title-1 wl-title">ITSS Design System</h1>
         <p className="itss-subtitle-2 wl-subtitle">
           Component library and playground for the Hub
