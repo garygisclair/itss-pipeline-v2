@@ -1,0 +1,169 @@
+/* ── Base ─────────────────────────────────────────────────────── */
+.itss-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-2); /* 8px */
+  width: 100%;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);       /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-primary);
+  padding: var(--spacing-p-2) var(--spacing-p-4); /* 8px 16px */
+  position: relative;
+  border-radius: 8px;
+  transition: background 0.1s ease;
+}
+
+.itss-menu-item:hover {
+  background: var(--state-hover);
+}
+
+.itss-menu-item:active {
+  background: var(--state-pressed);
+}
+
+/* ── Label frame ──────────────────────────────────────────────── */
+.itss-menu-item__label-frame {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  gap: 2px;
+}
+
+.itss-menu-item__label {
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itss-menu-item__label--bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.itss-menu-item__subtitle {
+  font-size: var(--type-caption-size);    /* 12px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-caption-line-height); /* 16px */
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Icon frame ───────────────────────────────────────────────── */
+.itss-menu-item__icon-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--fg-primary);
+}
+
+/* ── Tick (single-select) ─────────────────────────────────────── */
+.itss-menu-item__tick {
+  flex-shrink: 0;
+  color: var(--fg-primary);
+}
+
+.itss-menu-item--single-select {
+  padding-right: var(--spacing-p-4); /* 16px */
+}
+
+/* Reserve space on the right when checked so label doesn't shift */
+.itss-menu-item--single-select.itss-menu-item--checked {
+  padding-right: 40px; /* 16px gap + 16px tick + 8px gap */
+}
+
+.itss-menu-item--single-select .itss-menu-item__tick {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ── Checkbox (multi-select) ──────────────────────────────────── */
+.itss-menu-item__checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-medium);
+  background: transparent;
+  color: var(--fg-on-accent);
+  transition: background 0.1s ease, border-color 0.1s ease;
+}
+
+.itss-menu-item__checkbox--checked {
+  background: var(--bg-accent);
+  border-color: var(--bg-accent);
+}
+
+/* ── Chevron (category) ───────────────────────────────────────── */
+.itss-menu-item__chevron {
+  flex-shrink: 0;
+  color: var(--fg-secondary);
+}
+
+.itss-menu-item--category {
+  padding: var(--spacing-p-2) var(--spacing-p-3); /* 8px 12px */
+}
+
+/* ── Clearable ────────────────────────────────────────────────── */
+.itss-menu-item--clearable {
+  padding: var(--spacing-p-1) var(--spacing-p-2) var(--spacing-p-1) var(--spacing-p-4); /* 4px 8px 4px 16px */
+}
+
+/* ── Person ───────────────────────────────────────────────────── */
+.itss-menu-item--person {
+  gap: var(--spacing-gap-4); /* 16px */
+  padding: var(--spacing-p-2) var(--spacing-p-4); /* 8px 16px */
+}
+
+/* ── Section title (non-interactive) ─────────────────────────── */
+.itss-menu-item--section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: default;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.itss-menu-item--section-title:hover {
+  background: none;
+}
+
+.itss-menu-item__divider-wrap {
+  width: 100%;
+  padding-bottom: var(--spacing-p-2); /* 8px */
+}
+
+.itss-menu-item__section-label {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-secondary);
+  text-align: left;
+  padding: var(--spacing-p-2) var(--spacing-p-4) var(--spacing-p-1); /* 8px 16px 4px */
+}

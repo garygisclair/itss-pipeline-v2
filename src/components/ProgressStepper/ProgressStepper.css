@@ -1,0 +1,43 @@
+/* ── Container ────────────────────────────────────────────────── */
+
+.itss-progress-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-p-4);    /* 16px — between title and steps */
+}
+
+/* ── Summary title ─────────────────────────────────────────────── */
+
+.itss-progress-stepper__title {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-title-3-size);          /* 16px */
+  font-weight: var(--type-title-3-weight);      /* 700 */
+  line-height: var(--type-title-3-line-height); /* 24px */
+  color: var(--fg-primary);
+}
+
+/* ── Steps row (horizontal) ──────────────────────────────────── */
+
+.itss-progress-stepper__steps {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Each step fills equal width */
+.itss-progress-stepper__steps .itss-progress-step {
+  flex: 1;
+  width: auto;
+}
+
+/* ── Vertical layout ──────────────────────────────────────────── */
+
+.itss-progress-stepper--vertical .itss-progress-stepper__steps {
+  flex-direction: column;
+}
+
+/* Each vertical step fills equal height */
+.itss-progress-stepper--vertical .itss-progress-stepper__steps .itss-progress-step {
+  flex: 1;
+  width: 149px;
+  height: auto;
+}

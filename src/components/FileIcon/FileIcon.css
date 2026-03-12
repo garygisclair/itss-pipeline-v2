@@ -1,0 +1,11 @@
+.itss-file-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.itss-file-icon--missing {
+  display: inline-block;
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 2px;
+}

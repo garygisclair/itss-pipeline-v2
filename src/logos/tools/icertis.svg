@@ -1,0 +1,23 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="type=Icertis">
+<g id="Rectangle 2085">
+<path d="M2 10C2 5.58172 5.58172 2 10 2H38C42.4183 2 46 5.58172 46 10V38C46 42.4183 42.4183 46 38 46H10C5.58172 46 2 42.4183 2 38V10Z" fill="url(#paint0_linear_2924_1658)"/>
+<path d="M2 10C2 5.58172 5.58172 2 10 2H38C42.4183 2 46 5.58172 46 10V38C46 42.4183 42.4183 46 38 46H10C5.58172 46 2 42.4183 2 38V10Z" fill="url(#paint1_linear_2924_1658)"/>
+</g>
+<g id="Group 31691">
+<path id="Rectangle 2086 (Stroke)" d="M35.381 13.7144V36.0005H15.5714V13.7144H35.381ZM17.5714 34.0005H33.381V15.7144H17.5714V34.0005Z" fill="#00E4BC"/>
+<path id="Rectangle 2087 (Stroke)" d="M29.0482 10.0001L34.6918 31.0621L16.2626 36.0001L10.619 14.9382L29.0482 10.0001ZM17.6768 33.5506L32.2422 29.6478L27.634 12.4497L13.0686 16.3525L17.6768 33.5506Z" fill="white"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2924_1658" x1="46" y1="46" x2="2" y2="2" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0FBBF0"/>
+<stop offset="1" stop-color="#1C5FDE"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2924_1658" x1="3.22222" y1="44.1667" x2="44.7778" y2="3.83333" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0AD1F1"/>
+<stop offset="0.5" stop-color="#3C36B9"/>
+<stop offset="0.999157" stop-color="#90278E"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,32 @@
+.itss-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  background: var(--fg-status-attention);
+  border: 2px solid var(--fg-on-accent);
+  border-radius: var(--radius-large);
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-bold-size);       /* 12px */
+  font-weight: var(--font-weight-bold);            /* 700 */
+  line-height: var(--type-caption-bold-line-height); /* 16px */
+  color: var(--fg-on-accent);
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Single — 1-digit count, circular */
+.itss-badge--single {
+  width: 24px;
+  border-radius: 50%;
+}
+
+/* Double — 2-digit count (e.g. 10–99) */
+.itss-badge--double {
+  width: 34px;
+}
+
+/* Max — 3-char display (e.g. "99+") */
+.itss-badge--max {
+  width: 40px;
+}

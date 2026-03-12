@@ -1,0 +1,88 @@
+/* ── Container ──────────────────────────────────────────────── */
+
+.itss-nav-avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+/* ── Progress ring ──────────────────────────────────────────── */
+
+/* 52×52 SVG sits -2px outside the 48px avatar on every side */
+.itss-nav-avatar__ring {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+}
+
+.itss-nav-avatar__ring-track {
+  stroke: var(--border-subtle);
+}
+
+.itss-nav-avatar__ring-fill {
+  stroke: var(--bg-accent);
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* ── Avatar circle ──────────────────────────────────────────── */
+
+.itss-nav-avatar__photo {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-secondary);
+}
+
+.itss-nav-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.itss-nav-avatar__initials {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-bold-size);          /* 14px */
+  font-weight: var(--type-body-bold-weight);      /* 700 */
+  line-height: var(--type-body-bold-line-height); /* 20px */
+  color: var(--fg-secondary);
+  user-select: none;
+}
+
+.itss-nav-avatar__fallback {
+  width: 24px;
+  height: 24px;
+  color: var(--fg-secondary);
+}
+
+/* ── Percent label pill ─────────────────────────────────────── */
+
+/* Confirmed from Figma: top 38px (extends 2px below 48px container) */
+.itss-nav-avatar__label {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 2px 6px; /* 2px v, 6px h — both off-scale, confirmed from Figma */
+  font-family: var(--font-family-primary);
+  font-size: var(--type-signal-2-size);           /* 10px */
+  font-weight: var(--type-signal-2-weight);       /* 700 */
+  line-height: var(--type-signal-2-line-height);  /* 12px */
+  letter-spacing: var(--type-signal-2-tracking);  /* 0.05em */
+  text-transform: uppercase;
+  color: var(--fg-primary);
+  white-space: nowrap;
+}

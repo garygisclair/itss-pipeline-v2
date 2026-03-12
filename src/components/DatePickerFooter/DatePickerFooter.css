@@ -1,0 +1,87 @@
+/* ── Date Picker Footer — Cancel + Apply row ─────────────────── */
+
+.itss-dp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 32px;
+  border-top: 0.5px solid var(--border-subtle);
+  box-sizing: border-box;
+}
+
+/* ── Cancel button (borderless) ──────────────────────────────── */
+
+.itss-dp-footer__cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 12px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--fg-primary);
+  transition: background-color 0.1s ease;
+}
+
+.itss-dp-footer__cancel:hover {
+  background: var(--state-hover);
+}
+
+.itss-dp-footer__cancel:active {
+  background: var(--state-pressed);
+}
+
+/* ── Apply button (primary) ──────────────────────────────────── */
+
+.itss-dp-footer__apply {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 20px;
+  background: var(--bg-accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--fg-on-accent);
+  transition: opacity 0.1s ease;
+  position: relative;
+}
+
+.itss-dp-footer__apply::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-dp-footer__apply:hover::before {
+  opacity: 0.16;
+}
+
+.itss-dp-footer__apply:active::before {
+  opacity: 0.24;
+}
+
+.itss-dp-footer__apply:disabled {
+  background: var(--bg-disabled);
+  color: var(--fg-on-disabled);
+  cursor: not-allowed;
+}

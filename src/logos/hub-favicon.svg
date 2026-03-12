@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="favicon">
+<path id="Rectangle 2067 (Stroke)" d="M22 8C22 4.68629 19.3137 2 16 2C12.6863 2 10 4.68629 10 8H8C8 3.58172 11.5817 0 16 0C20.4183 0 24 3.58172 24 8H22Z" fill="#363636"/>
+<g id="Group 31648">
+<path id="Intersect" fill-rule="evenodd" clip-rule="evenodd" d="M9 8H2V26C2 29.3137 4.68629 32 8 32H9V8Z" fill="#F02D2D"/>
+<rect id="Rectangle 1247" x="9" y="8" width="7" height="24" fill="#0968F6"/>
+<rect id="Rectangle 1248" x="16" y="8" width="7" height="24" fill="#FFBD14"/>
+<path id="Intersect_2" fill-rule="evenodd" clip-rule="evenodd" d="M23 32H24C27.3137 32 30 29.3137 30 26V8H23V32Z" fill="#92C821"/>
+</g>
+</g>
+</svg>

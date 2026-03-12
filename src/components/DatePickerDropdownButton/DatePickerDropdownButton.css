@@ -1,0 +1,33 @@
+/* ── Date Picker Dropdown Button — month/year header ─────────── */
+
+.itss-dp-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--fg-primary);
+  white-space: nowrap;
+}
+
+.itss-dp-dropdown-btn:hover {
+  color: var(--fg-primary);
+  opacity: 0.8;
+}
+
+.itss-dp-dropdown-btn__chevron {
+  flex-shrink: 0;
+  color: var(--fg-primary);
+  transition: transform 0.15s ease;
+}
+
+.itss-dp-dropdown-btn--open .itss-dp-dropdown-btn__chevron {
+  transform: rotate(180deg);
+}

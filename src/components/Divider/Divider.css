@@ -1,0 +1,35 @@
+/* ── Wrapper ─────────────────────────────────────────────────── */
+.itss-divider {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.itss-divider--horizontal {
+  flex-direction: column;
+  width: 100%;
+  height: 1px;
+}
+
+.itss-divider--vertical {
+  flex-direction: row;
+  width: 1px;
+  height: 100%;
+}
+
+/* ── Insets (padding pushes the line back from each edge) ─────── */
+.itss-divider--horizontal.itss-divider--inset-16 {
+  padding: 0 var(--spacing-p-4); /* 0 16px */
+}
+
+.itss-divider--vertical.itss-divider--inset-16 {
+  padding: var(--spacing-p-4) 0; /* 16px 0 */
+}
+
+/* ── Line ────────────────────────────────────────────────────── */
+.itss-divider__line {
+  flex: 1 0 0;
+  background: var(--border-subtle);
+  border-radius: 8px;
+  min-height: 1px;
+  min-width: 1px;
+}

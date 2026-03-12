@@ -1,0 +1,29 @@
+/* ── Row layout ─────────────────────────────────────────────── */
+.itss-selection-item {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--spacing-gap-2); /* 8px — radio / checkbox */
+  padding: var(--spacing-p-2) 0; /* 8px vertical */
+  cursor: pointer;
+}
+
+/* Switch gets a wider gap */
+.itss-selection-item--switch {
+  gap: var(--spacing-gap-3); /* 12px */
+}
+
+/* ── Label ──────────────────────────────────────────────────── */
+.itss-selection-item__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-primary);
+  padding: 2px 0; /* aligns text baseline with control center */
+  flex: 1;
+}
+
+/* ── Disabled label ─────────────────────────────────────────── */
+.itss-selection-item--disabled .itss-selection-item__label {
+  color: var(--fg-disabled);
+}

@@ -1,0 +1,104 @@
+.itss-chip {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-tertiary);
+  border-radius: 100px;
+  overflow: hidden;
+  padding-right: 4px; /* TODO: spacing token when confirmed from Figma */
+  position: relative;
+}
+
+/* Chip-level hover state layer */
+.itss-chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-chip:hover::before {
+  opacity: 0.04;
+}
+
+/* ── Content area ── */
+.itss-chip__content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);    /* 8px */
+  padding-right: var(--spacing-p-2); /* 8px */
+  flex-shrink: 0;
+  position: relative; /* stays above ::before */
+}
+
+/* Default type: explicit vertical + left padding */
+.itss-chip--default .itss-chip__content {
+  padding-left: var(--spacing-p-3);  /* 12px */
+  padding-top: var(--spacing-p-2);   /* 8px */
+  padding-bottom: var(--spacing-p-2);
+}
+
+/* Avatar type: avatar fills the height, no extra padding */
+.itss-chip--avatar .itss-chip__content {
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.itss-chip__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--fg-primary);
+}
+
+.itss-chip__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-size);          /* 12px */
+  font-weight: var(--font-weight-regular);       /* 400 */
+  line-height: var(--type-caption-line-height);  /* 16px */
+  color: var(--fg-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Remove button ── */
+.itss-chip__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  color: var(--fg-primary);
+  padding: 0;
+}
+
+/* Remove button hover state layer */
+.itss-chip__remove::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-chip__remove:hover::before {
+  opacity: 0.04;
+}
+
+.itss-chip__remove svg,
+.itss-chip__remove img {
+  position: relative; /* stays above ::before */
+}

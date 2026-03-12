@@ -1,0 +1,110 @@
+/* ── Base ─────────────────────────────────────────────────────── */
+.itss-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  flex-shrink: 0;
+  outline: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-icon-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* ── Sizes ───────────────────────────────────────────────────── */
+.itss-icon-btn--large  { width: 48px; height: 48px; }
+.itss-icon-btn--medium { width: 40px; height: 40px; }
+.itss-icon-btn--small  { width: 32px; height: 32px; }
+
+/* ── Styles ──────────────────────────────────────────────────── */
+.itss-icon-btn--primary {
+  background: var(--bg-accent);
+  color: var(--fg-on-accent);
+}
+.itss-icon-btn--primary:disabled {
+  background: var(--bg-disabled);
+  color: var(--fg-on-disabled);
+}
+
+.itss-icon-btn--secondary {
+  background: transparent;
+  border: 1px solid var(--border-accent);
+  color: var(--fg-information);
+}
+.itss-icon-btn--secondary:disabled {
+  border-color: var(--border-disabled);
+  color: var(--fg-disabled);
+}
+
+.itss-icon-btn--tertiary {
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  color: var(--fg-primary);
+}
+.itss-icon-btn--tertiary:disabled {
+  border-color: var(--border-disabled);
+  color: var(--fg-disabled);
+}
+
+.itss-icon-btn--borderless {
+  background: transparent;
+  color: var(--fg-primary);
+}
+.itss-icon-btn--borderless:disabled {
+  color: var(--fg-disabled);
+}
+
+/* ── State layer (::before) ──────────────────────────────────── */
+.itss-icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-icon-btn--primary::before                        { background: #ffffff; }
+.itss-icon-btn--primary:hover:not(:disabled)::before   { opacity: 0.16; }
+.itss-icon-btn--primary:active:not(:disabled)::before  { opacity: 0.24; }
+
+.itss-icon-btn--secondary::before,
+.itss-icon-btn--tertiary::before,
+.itss-icon-btn--borderless::before                             { background: #000000; }
+.itss-icon-btn--secondary:hover:not(:disabled)::before,
+.itss-icon-btn--tertiary:hover:not(:disabled)::before,
+.itss-icon-btn--borderless:hover:not(:disabled)::before        { opacity: 0.04; }
+.itss-icon-btn--secondary:active:not(:disabled)::before,
+.itss-icon-btn--tertiary:active:not(:disabled)::before,
+.itss-icon-btn--borderless:active:not(:disabled)::before       { opacity: 0.08; }
+
+/* ── Loading ─────────────────────────────────────────────────── */
+.itss-icon-btn--loading {
+  cursor: default;
+  pointer-events: none;
+}
+
+.itss-icon-btn--loading .itss-icon-btn__icon {
+  visibility: hidden;
+}
+
+.itss-icon-btn__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Primary loading: white spinner */
+.itss-icon-btn--primary .itss-icon-btn__loading .itss-spinner {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+}

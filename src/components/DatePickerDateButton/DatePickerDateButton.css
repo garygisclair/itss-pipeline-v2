@@ -1,0 +1,135 @@
+/* ── Date Picker Date Button — 48×48px day cell ───────────────── */
+
+.itss-dp-date-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.itss-dp-date-btn--disabled {
+  cursor: not-allowed;
+}
+
+.itss-dp-date-btn--null {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Range bar (full-width, 32px tall, behind circle) ─────────── */
+
+.itss-dp-date-btn__range {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  background: var(--bg-accent-subtle);
+  pointer-events: none;
+}
+
+.itss-dp-date-btn__range--left {
+  left: 0;
+  width: 50%;
+}
+
+.itss-dp-date-btn__range--right {
+  right: 0;
+  width: 50%;
+}
+
+.itss-dp-date-btn__range--full {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+/* ── Inner circle (32×32px) ───────────────────────────────────── */
+
+.itss-dp-date-btn__circle {
+  position: relative;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-primary);
+  transition: background-color 0.1s ease;
+}
+
+/* ── Type variants ────────────────────────────────────────────── */
+
+/* today — blue dot below number */
+.itss-dp-date-btn--today .itss-dp-date-btn__circle {
+  color: var(--fg-primary);
+}
+
+/* selected — filled accent circle */
+.itss-dp-date-btn--selected .itss-dp-date-btn__circle {
+  background: var(--bg-accent);
+  color: var(--fg-on-accent);
+}
+
+/* middle of range — subtle circle */
+.itss-dp-date-btn--middle .itss-dp-date-btn__circle {
+  background: var(--bg-accent-subtle);
+  color: var(--fg-primary);
+}
+
+/* pre/next month — secondary color */
+.itss-dp-date-btn--pre-next .itss-dp-date-btn__circle {
+  color: var(--fg-secondary);
+}
+
+/* disabled */
+.itss-dp-date-btn--disabled .itss-dp-date-btn__circle {
+  color: var(--fg-disabled);
+}
+
+/* ── Hover / pressed states ───────────────────────────────────── */
+
+.itss-dp-date-btn:not(.itss-dp-date-btn--disabled):not(.itss-dp-date-btn--null):hover
+.itss-dp-date-btn__circle {
+  background: var(--state-hover);
+}
+
+.itss-dp-date-btn--selected:hover .itss-dp-date-btn__circle {
+  background: var(--bg-accent);
+}
+
+.itss-dp-date-btn--middle:hover .itss-dp-date-btn__circle {
+  background: var(--bg-accent-subtle);
+}
+
+.itss-dp-date-btn:not(.itss-dp-date-btn--disabled):not(.itss-dp-date-btn--null):active
+.itss-dp-date-btn__circle {
+  background: var(--state-pressed);
+}
+
+/* ── Today dot ────────────────────────────────────────────────── */
+
+.itss-dp-date-btn__today-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--bg-accent);
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.itss-dp-date-btn--selected .itss-dp-date-btn__today-dot {
+  background: var(--fg-on-accent);
+}

@@ -1,0 +1,167 @@
+/* Destructive Button — node 870:603
+   Variants: primary | secondary | tertiary | borderless
+   Sizes:    large | medium | small
+   States:   default, hover, pressed, disabled, loading
+
+   Structure identical to CTA Button. Color differences:
+   - primary:   --bg-destructive fill, white text
+   - secondary: --fg-destructive border + text
+   - tertiary:  --border-medium border (same as CTA), --fg-destructive text
+   - borderless: --fg-destructive text, bold */
+
+.itss-destructive-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-weight: 700;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* State layer overlay */
+.itss-destructive-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+/* ── Sizes ──────────────────────────────────────────────────── */
+
+.itss-destructive-btn--large  { height: 48px; padding: 0 var(--spacing-p-6); max-width: 480px; font-size: 16px; line-height: 24px; letter-spacing: -0.02em; }
+.itss-destructive-btn--medium { height: 40px; padding: 0 var(--spacing-p-5); max-width: 400px; font-size: 14px; line-height: 20px; }
+.itss-destructive-btn--small  { height: 32px; padding: 0 var(--spacing-p-4); max-width: 320px; font-size: 14px; line-height: 20px; }
+
+/* ── Primary ──────────────────────────────────────────────── */
+
+.itss-destructive-btn--primary {
+  background: var(--bg-destructive);
+  color: var(--fg-on-accent);
+  border: none;
+}
+.itss-destructive-btn--primary::before          { background: #ffffff; }
+.itss-destructive-btn--primary:hover::before    { opacity: 0.16; }
+.itss-destructive-btn--primary:active::before   { opacity: 0.24; }
+
+/* Loading: white spinner on red bg (primary) */
+.itss-destructive-btn--primary .itss-destructive-btn__spinner {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+}
+
+/* Loading: red spinner on light surfaces (secondary, tertiary, borderless) */
+.itss-destructive-btn--secondary .itss-destructive-btn__spinner,
+.itss-destructive-btn--tertiary .itss-destructive-btn__spinner,
+.itss-destructive-btn--borderless .itss-destructive-btn__spinner {
+  border-color: rgba(213, 11, 11, 0.2);
+  border-top-color: var(--fg-destructive);
+}
+
+.itss-destructive-btn--primary:disabled {
+  background: var(--bg-disabled);
+  color: var(--fg-on-disabled);
+}
+
+/* ── Secondary ────────────────────────────────────────────── */
+
+.itss-destructive-btn--secondary {
+  background: transparent;
+  color: var(--fg-destructive);
+  border: 1px solid var(--fg-destructive);
+}
+.itss-destructive-btn--secondary::before        { background: var(--fg-destructive); }
+.itss-destructive-btn--secondary:hover::before  { opacity: 0.04; }
+.itss-destructive-btn--secondary:active::before { opacity: 0.08; }
+
+.itss-destructive-btn--secondary:disabled {
+  color: var(--fg-disabled);
+  border-color: var(--border-disabled);
+}
+
+/* ── Tertiary ─────────────────────────────────────────────── */
+
+.itss-destructive-btn--tertiary {
+  background: transparent;
+  color: var(--fg-destructive);
+  border: 1px solid var(--border-medium);
+}
+.itss-destructive-btn--tertiary::before        { background: var(--fg-destructive); }
+.itss-destructive-btn--tertiary:hover::before  { opacity: 0.04; }
+.itss-destructive-btn--tertiary:active::before { opacity: 0.08; }
+
+.itss-destructive-btn--tertiary:disabled {
+  color: var(--fg-disabled);
+  border-color: var(--border-disabled);
+}
+
+/* ── Borderless ───────────────────────────────────────────── */
+
+.itss-destructive-btn--borderless {
+  background: transparent;
+  color: var(--fg-destructive);
+  border: none;
+}
+
+.itss-destructive-btn--borderless.itss-destructive-btn--large  { padding: 0 var(--spacing-p-3); }
+.itss-destructive-btn--borderless.itss-destructive-btn--medium { padding: 0 10px; } /* TODO: token when confirmed */
+.itss-destructive-btn--borderless.itss-destructive-btn--small  { padding: 0 8px; }  /* TODO: token when confirmed */
+
+.itss-destructive-btn--borderless::before        { background: var(--fg-destructive); }
+.itss-destructive-btn--borderless:hover::before  { opacity: 0.04; }
+.itss-destructive-btn--borderless:active::before { opacity: 0.08; }
+
+.itss-destructive-btn--borderless:disabled {
+  color: var(--fg-disabled);
+}
+
+/* ── Disabled (shared) ────────────────────────────────────── */
+
+.itss-destructive-btn:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Loading ──────────────────────────────────────────────── */
+
+.itss-destructive-btn--loading {
+  pointer-events: none;
+}
+
+/* ── Content / Loading overlay ────────────────────────────── */
+
+.itss-destructive-btn__content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+}
+.itss-destructive-btn--loading .itss-destructive-btn__content {
+  visibility: hidden;
+}
+
+.itss-destructive-btn__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Icons ────────────────────────────────────────────────── */
+
+.itss-destructive-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

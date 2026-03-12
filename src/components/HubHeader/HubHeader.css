@@ -1,0 +1,334 @@
+/* ── Container (enables container queries for all children incl. header itself) */
+
+.itss-hub-header__container {
+  container-type: inline-size;
+  container-name: hub-header;
+  width: 100%;
+}
+
+/* ── Header bar ─────────────────────────────────────────────── */
+
+.itss-hub-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 72px;
+  background: var(--bg-primary);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.28); /* Elevation L1 */
+  padding: 0 16px 0 8px; /* mobile: 8px left, 16px right */
+  box-sizing: border-box;
+}
+
+@container hub-header (min-width: 768px) {
+  .itss-hub-header {
+    padding: 0 24px;
+  }
+}
+
+/* ── Left / Right layout ────────────────────────────────────── */
+
+.itss-hub-header__left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  gap: var(--spacing-gap-2);   /* 8px at mobile */
+}
+
+@container hub-header (min-width: 768px) {
+  .itss-hub-header__left {
+    gap: var(--spacing-gap-5); /* 20px */
+  }
+}
+
+.itss-hub-header__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;    /* between btn-group and avatar — off-scale, confirmed from Figma */
+  flex-shrink: 0;
+}
+
+.itss-hub-header__btn-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-1);   /* 4px */
+}
+
+/* ── Base icon button: 48×48 ────────────────────────────────── */
+
+.itss-hub-header__icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-primary);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.itss-hub-header__icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-hub-header__icon-btn:hover::before  { opacity: 0.04; }
+.itss-hub-header__icon-btn:active::before { opacity: 0.08; }
+
+.itss-hub-header__icon-btn > * { position: relative; }
+
+/* 40×40 + bg-secondary (location button) */
+.itss-hub-header__icon-btn--secondary {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-secondary);
+}
+
+/* 40×40 transparent (AI pill inner buttons) */
+.itss-hub-header__icon-btn--sm {
+  width: 40px;
+  height: 40px;
+}
+
+/* ── Logo buttons ───────────────────────────────────────────── */
+
+.itss-hub-header__logo-stacked-btn,
+.itss-hub-header__logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile only: stacked logo — hide at ≥768 */
+@container hub-header (min-width: 768px) {
+  .itss-hub-header__logo-stacked-btn { display: none; }
+}
+
+/* Mobile only: hamburger — hide at ≥768 */
+@container hub-header (min-width: 768px) {
+  .itss-hub-header__menu-btn { display: none; }
+}
+
+/* Horizontal logo — hidden < 768 */
+.itss-hub-header__logo-btn { display: none; }
+
+@container hub-header (min-width: 768px) {
+  .itss-hub-header__logo-btn { display: flex; }
+}
+
+/* ── Tools group (≥768) ─────────────────────────────────────── */
+
+.itss-hub-header__tools {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-gap-2);   /* 8px */
+  flex-shrink: 0;
+}
+
+@container hub-header (min-width: 768px) {
+  .itss-hub-header__tools { display: flex; }
+}
+
+/* ── AI tools pill ──────────────────────────────────────────── */
+
+.itss-hub-header__ai-pill {
+  display: flex;
+  align-items: center;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+/* Label button — 768–1199px only */
+.itss-hub-header__ai-label-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-1);                    /* 4px */
+  height: 40px;
+  padding: 0 var(--spacing-p-2) 0 var(--spacing-p-3); /* 0 8px 0 12px */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-primary);
+  position: relative;
+  border-radius: var(--radius-full) 0 0 var(--radius-full);
+}
+
+.itss-hub-header__ai-label-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-hub-header__ai-label-btn:hover::before  { opacity: 0.04; }
+.itss-hub-header__ai-label-btn:active::before { opacity: 0.08; }
+
+.itss-hub-header__ai-label-btn > * { position: relative; }
+
+.itss-hub-header__ai-label-text {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-bold-size);           /* 14px */
+  font-weight: var(--type-body-bold-weight);       /* 700 */
+  line-height: var(--type-body-bold-line-height);  /* 20px */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
+
+/* Hide label at ≥1200 */
+@container hub-header (min-width: 1200px) {
+  .itss-hub-header__ai-label-btn { display: none; }
+}
+
+.itss-hub-header__ai-icons {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Inline search bar (≥1200) ──────────────────────────────── */
+
+.itss-hub-header__search-bar {
+  display: none;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  background: var(--bg-on-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  padding-right: var(--spacing-p-2); /* 8px */
+}
+
+@container hub-header (min-width: 1200px) {
+  .itss-hub-header__search-bar { display: flex; }
+}
+
+.itss-hub-header__search-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px; /* off-scale — confirmed from Figma */
+  flex-shrink: 0;
+  color: var(--fg-secondary);
+}
+
+.itss-hub-header__search-input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+  color: var(--fg-secondary);
+}
+
+.itss-hub-header__search-input::placeholder {
+  color: var(--fg-secondary);
+}
+
+.itss-hub-header__search-clear {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-primary);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.itss-hub-header__search-clear::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-hub-header__search-clear:hover::before  { opacity: 0.04; }
+.itss-hub-header__search-clear:active::before { opacity: 0.08; }
+
+.itss-hub-header__search-clear > * { position: relative; }
+
+/* ── Search icon in right — hidden ≥1200 ───────────────────── */
+
+@container hub-header (min-width: 1200px) {
+  .itss-hub-header__search-icon-btn { display: none; }
+}
+
+/* ── Notification + badge ───────────────────────────────────── */
+
+.itss-hub-header__notification {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.itss-hub-header__badge {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  min-width: 24px;
+  height: 24px;
+  background: var(--fg-status-attention);
+  border-radius: 12px;
+  border: 2px solid var(--bg-primary);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  pointer-events: none;
+}
+
+.itss-hub-header__badge-count {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-bold-size);           /* 12px */
+  font-weight: var(--type-caption-bold-weight);       /* 700 */
+  line-height: var(--type-caption-bold-line-height);  /* 16px */
+  color: var(--fg-on-accent);
+  text-align: center;
+}
+
+/* ── Avatar button ──────────────────────────────────────────── */
+
+.itss-hub-header__avatar-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}

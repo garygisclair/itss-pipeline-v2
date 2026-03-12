@@ -1,0 +1,310 @@
+/* ── Base cell ─────────────────────────────────────────────── */
+.itss-table-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 var(--spacing-p-4);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Density row heights — compact is default 52px, no modifier needed */
+.itss-table-cell--cozy    { height: 64px; }
+.itss-table-cell--relaxed { height: 72px; }
+
+/* Centered content types */
+.itss-table-cell--checkbox,
+.itss-table-cell--toggle,
+.itss-table-cell--actions-icons,
+.itss-table-cell--actions-link-button,
+.itss-table-cell--image {
+  justify-content: center;
+}
+
+/* ── State layer via ::before ──────────────────────────────── */
+.itss-table-cell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  transition: background 0.1s ease;
+}
+
+.itss-table-cell:not(.itss-table-cell--disabled):hover::before {
+  background: var(--state-hover);
+}
+
+.itss-table-cell--selected::before {
+  background: var(--state-selected);
+}
+
+.itss-table-cell:not(.itss-table-cell--disabled):focus-within {
+  outline: 2px solid var(--border-accent);
+  outline-offset: -2px;
+}
+
+.itss-table-cell:not(.itss-table-cell--disabled):focus-within::before {
+  background: var(--state-focused);
+}
+
+/* ── Error indicator — CSS corner triangle, top-right ─────── */
+.itss-table-cell--error::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 8px 8px 0;
+  border-color: transparent var(--fg-destructive) transparent transparent;
+  pointer-events: none;
+}
+
+/* ── Layout helpers — above ::before ───────────────────────── */
+.itss-table-cell__row,
+.itss-table-cell__col,
+.itss-table-cell__chips-row,
+.itss-table-cell__dropdown-trigger,
+.itss-table-cell__link-btn,
+.itss-table-cell__image,
+.itss-table-cell__image-placeholder,
+.itss-table-cell__empty {
+  position: relative;
+}
+
+.itss-table-cell__row {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.itss-table-cell__row--avatar-gap  { gap: var(--spacing-gap-4); } /* 16px */
+.itss-table-cell__row--element-gap { gap: var(--spacing-gap-3); } /* 12px */
+.itss-table-cell__row--actions-gap { gap: var(--spacing-gap-3); flex: 0; }
+
+.itss-table-cell__col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+
+.itss-table-cell__col--flex { flex: 1; }
+
+/* ── Typography ─────────────────────────────────────────────── */
+.itss-table-cell__header-label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-bold-size);
+  font-weight: var(--type-body-bold-weight);
+  line-height: var(--type-body-bold-line-height);
+  letter-spacing: var(--type-body-bold-tracking);
+  color: var(--fg-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.itss-table-cell__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-tracking);
+  color: var(--fg-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.itss-table-cell__label--nowrap {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.itss-table-cell__subtitle {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
+  line-height: var(--type-caption-line-height);
+  letter-spacing: var(--type-caption-tracking);
+  color: var(--fg-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.itss-table-cell__empty {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-secondary);
+  text-align: center;
+}
+
+/* ── Header sort icon spacing ───────────────────────────────── */
+.itss-table-cell__sort-icon {
+  margin-left: var(--spacing-gap-2); /* 8px gap between label and sort icon */
+}
+
+/* ── Dropdown trigger ───────────────────────────────────────── */
+.itss-table-cell__dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border: none;
+  background: transparent;
+  border-radius: 8px; /* no radius token at 8px */
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.1s ease;
+}
+
+.itss-table-cell:not(.itss-table-cell--disabled) .itss-table-cell__dropdown-trigger:hover {
+  background: var(--state-hover);
+}
+
+/* ── Icon action buttons ────────────────────────────────────── */
+.itss-table-cell__icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  color: var(--fg-primary);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.itss-table-cell__icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: transparent;
+  transition: background 0.1s ease;
+}
+
+.itss-table-cell__icon-btn:hover::before   { background: var(--state-hover); }
+.itss-table-cell__icon-btn:active::before  { background: var(--state-pressed); }
+
+/* ── Actions — link button ──────────────────────────────────── */
+.itss-table-cell__link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  min-width: 80px;
+  max-width: 320px;
+  padding: 0 var(--spacing-p-4);
+  border: 1px solid var(--border-medium);
+  background: transparent;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.itss-table-cell__link-btn::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: transparent;
+  pointer-events: none;
+  transition: background 0.1s ease;
+}
+
+.itss-table-cell__link-btn:hover::before  { background: var(--state-hover); }
+.itss-table-cell__link-btn:active::before { background: var(--state-pressed); }
+
+/* ── Image ──────────────────────────────────────────────────── */
+.itss-table-cell__image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.itss-table-cell__image-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--bg-disabled);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-on-disabled);
+  flex-shrink: 0;
+}
+
+/* ── Chips ──────────────────────────────────────────────────── */
+.itss-table-cell__chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  flex: 1;
+  min-width: 0;
+}
+
+.itss-table-cell__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 8px 8px 12px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
+  line-height: var(--type-caption-line-height);
+  color: var(--fg-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Disabled ───────────────────────────────────────────────── */
+.itss-table-cell--disabled {
+  pointer-events: none;
+}
+
+.itss-table-cell--disabled .itss-table-cell__header-label,
+.itss-table-cell--disabled .itss-table-cell__label,
+.itss-table-cell--disabled .itss-table-cell__subtitle,
+.itss-table-cell--disabled .itss-table-cell__empty {
+  color: var(--fg-disabled);
+}
+
+.itss-table-cell--disabled .itss-table-cell__icon-btn,
+.itss-table-cell--disabled .itss-table-cell__image,
+.itss-table-cell--disabled .itss-table-cell__image-placeholder {
+  opacity: 0.4;
+}
+
+.itss-table-cell--disabled .itss-table-cell__link-btn {
+  opacity: 0.4;
+  border-color: var(--border-disabled);
+}

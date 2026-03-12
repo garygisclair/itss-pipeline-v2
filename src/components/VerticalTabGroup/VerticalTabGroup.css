@@ -1,0 +1,22 @@
+/* ── Container ────────────────────────────────────────────────── */
+
+.itss-vtab-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  width: 180px;
+}
+
+/* ── Left divider ─────────────────────────────────────────────── */
+
+.itss-vtab-group__divider {
+  position: absolute;
+  top: 6px;                    /* inset matches VerticalTab container py-6px */
+  bottom: 6px;
+  left: 1px;                   /* sits within the 3px indicator slot */
+  width: 1px;
+  background: var(--border-subtle);  /* closest to Figma #d9d9d9 */
+  border-radius: 100px;
+  pointer-events: none;
+}

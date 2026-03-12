@@ -1,0 +1,101 @@
+/* ── Base ─────────────────────────────────────────────────────── */
+
+.itss-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px var(--spacing-p-4) 0;   /* 10px top, 16px sides, 0 bottom */
+  border-radius: 8px;                    /* no 8px radius token */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* State layer */
+.itss-tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-tab:not(.itss-tab--disabled):hover::before  { opacity: 0.04; }
+.itss-tab:not(.itss-tab--disabled):active::before { opacity: 0.08; }
+
+/* ── Content ──────────────────────────────────────────────────── */
+
+.itss-tab__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-gap-2);    /* 8px */
+  position: relative;           /* stacks above ::before */
+}
+
+/* ── Label ────────────────────────────────────────────────────── */
+
+.itss-tab__label {
+  font-family: var(--font-family-primary);
+  white-space: nowrap;
+  color: var(--fg-secondary);
+}
+
+/* Medium — unselected */
+.itss-tab--medium .itss-tab__label {
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+}
+
+/* Medium — selected */
+.itss-tab--medium.itss-tab--selected .itss-tab__label {
+  font-weight: var(--type-body-bold-weight);  /* 700 */
+  color: var(--fg-primary);
+}
+
+/* Large — unselected */
+.itss-tab--large .itss-tab__label {
+  font-size: var(--type-title-3-size);            /* 16px */
+  font-weight: var(--type-body-weight);           /* 400 */
+  line-height: var(--type-title-3-line-height);   /* 24px */
+  letter-spacing: var(--type-title-3-tracking);   /* -0.02em */
+}
+
+/* Large — selected */
+.itss-tab--large.itss-tab--selected .itss-tab__label {
+  font-weight: var(--type-title-3-weight);    /* 700 */
+  color: var(--fg-primary);
+}
+
+/* Disabled */
+.itss-tab--disabled {
+  cursor: not-allowed;
+}
+
+.itss-tab--disabled .itss-tab__label {
+  color: var(--fg-disabled);
+}
+
+/* ── Selection indicator ──────────────────────────────────────── */
+
+.itss-tab__indicator {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: transparent;
+  border-radius: 2px;
+}
+
+.itss-tab--selected .itss-tab__indicator {
+  background: var(--fg-primary);
+}
+
+.itss-tab--disabled.itss-tab--selected .itss-tab__indicator {
+  background: var(--fg-disabled);
+}

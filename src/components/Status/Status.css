@@ -1,0 +1,16 @@
+.itss-status {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Colors sourced from Figma node 1358:3613 fills (Light/Status/* variables).
+   These differ from --fg-status-* tokens extracted from node 55:148 —
+   add to tokens.css once the full status color set is confirmed from Figma. */
+.itss-status--pending   { background: #f7b100; } /* Light/Status/Warning  */
+.itss-status--canceled  { background: #767676; } /* Light/Secondary Text  */
+.itss-status--draft     { background: var(--fg-disabled); }
+.itss-status--rejected  { background: #e62048; } /* Light/Status/Error    */
+.itss-status--submitted { background: #28a443; } /* Light/Status/Success  */

@@ -1,0 +1,45 @@
+.itss-input-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.itss-input-title__label {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.itss-input-title__text {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--fg-primary);
+  white-space: nowrap;
+}
+
+.itss-input-title__required {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--fg-destructive);
+  flex-shrink: 0;
+}
+
+.itss-input-title__tooltip-icon {
+  flex-shrink: 0;
+  color: var(--fg-information);
+}
+
+.itss-input-title__optional {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

@@ -1,0 +1,37 @@
+/* ── Container (matches Page Tab 44×32px footprint) ──────────── */
+
+.itss-pagination-page-overflow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ── State layer — 32×32 rounded pill centered in the 44px slot ─ */
+
+.itss-pagination-page-overflow::before {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-pagination-page-overflow:hover::before  { opacity: 0.04; }
+.itss-pagination-page-overflow:active::before { opacity: 0.08; }
+
+/* ── Icon sits above state layer ─────────────────────────────── */
+
+.itss-pagination-page-overflow > * {
+  position: relative;
+}

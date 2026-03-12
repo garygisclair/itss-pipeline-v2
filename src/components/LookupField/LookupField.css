@@ -1,0 +1,192 @@
+.itss-lookup-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Label area ──────────────────────────────────────────────── */
+
+.itss-lookup-field__label-area {
+  padding-bottom: 8px;
+}
+
+/* ── Wrap (relative anchor for menu) ────────────────────────── */
+
+.itss-lookup-field__wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Form field box ──────────────────────────────────────────── */
+
+.itss-lookup-field__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  transition: border-color 0.1s ease;
+}
+
+/* Sizes */
+
+.itss-lookup-field__wrapper--large {
+  padding: 14px 16px;
+}
+
+.itss-lookup-field__wrapper--default {
+  padding: 10px 16px;
+}
+
+/* Chip mode — reduced vertical padding to accommodate 32px chip height */
+
+.itss-lookup-field__wrapper--chips.itss-lookup-field__wrapper--large {
+  padding: 12px 16px;
+}
+
+.itss-lookup-field__wrapper--chips.itss-lookup-field__wrapper--default {
+  padding: 8px 16px;
+}
+
+/* Hover */
+
+.itss-lookup-field__wrapper:not(.itss-lookup-field__wrapper--disabled):not(.itss-lookup-field__wrapper--readonly):not(.itss-lookup-field__wrapper--error):hover {
+  border-color: var(--border-strong);
+}
+
+/* Focus */
+
+.itss-lookup-field__wrapper:not(.itss-lookup-field__wrapper--disabled):not(.itss-lookup-field__wrapper--readonly):not(.itss-lookup-field__wrapper--error):focus-within {
+  border-color: var(--border-strong);
+}
+
+/* Error */
+
+.itss-lookup-field__wrapper--error {
+  border-color: var(--fg-destructive);
+}
+
+/* Disabled */
+
+.itss-lookup-field__wrapper--disabled {
+  background: var(--bg-secondary);
+  border-color: var(--border-disabled);
+}
+
+/* Read-only */
+
+.itss-lookup-field__wrapper--readonly {
+  background: var(--bg-secondary);
+  border-color: var(--border-medium);
+}
+
+/* ── Search icon ─────────────────────────────────────────────── */
+
+.itss-lookup-field__search-icon {
+  flex-shrink: 0;
+  color: var(--fg-secondary);
+}
+
+.itss-lookup-field__wrapper--disabled .itss-lookup-field__search-icon {
+  color: var(--fg-disabled);
+}
+
+/* ── Container (holds chips + input) ─────────────────────────── */
+
+.itss-lookup-field__container {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow: hidden;
+}
+
+/* ── Input ───────────────────────────────────────────────────── */
+
+.itss-lookup-field__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-primary);
+}
+
+.itss-lookup-field__input::placeholder {
+  color: var(--fg-secondary);
+}
+
+.itss-lookup-field__input:disabled {
+  color: var(--fg-disabled);
+  cursor: not-allowed;
+}
+
+/* ── Chips ───────────────────────────────────────────────────── */
+
+.itss-lookup-field__chip {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  background: var(--bg-tertiary);
+  border-radius: 100px;
+  overflow: hidden;
+  padding-right: 4px;
+}
+
+.itss-lookup-field__chip--readonly {
+  padding-right: 0;
+}
+
+.itss-lookup-field__chip-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 8px;
+}
+
+.itss-lookup-field__chip-text {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--fg-primary);
+  white-space: nowrap;
+}
+
+.itss-lookup-field__chip-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--fg-primary);
+}
+
+.itss-lookup-field__chip-close:hover {
+  background: var(--state-hover);
+}
+
+/* ── Menu panel ─────────────────────────────────────────────── */
+
+.itss-lookup-field__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+}

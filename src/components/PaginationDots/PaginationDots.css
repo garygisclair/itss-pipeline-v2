@@ -1,0 +1,6 @@
+.itss-pagination-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* off 4px scale — confirmed from Figma spacing/75 */
+  padding-bottom: var(--spacing-p-4); /* 16px */
+}

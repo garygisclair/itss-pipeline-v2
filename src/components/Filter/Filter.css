@@ -1,0 +1,122 @@
+/* ── Container ─────────────────────────────────────────────────── */
+.itss-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-large); /* 24px */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* ── State layer ───────────────────────────────────────────────── */
+.itss-filter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+.itss-filter:hover::before   { opacity: 0.04; }
+.itss-filter:active::before  { opacity: 0.08; }
+.itss-filter--pressed::before { opacity: 0.08; }
+.itss-filter--disabled::before { opacity: 0 !important; }
+
+/* ── Applied / not-applied backgrounds ────────────────────────── */
+.itss-filter--not-applied { background: var(--bg-secondary); }
+.itss-filter--applied     { background: var(--bg-accent-subtle); }
+
+/* ── Sizes ─────────────────────────────────────────────────────── */
+.itss-filter--small {
+  height: 32px;
+  padding: var(--spacing-p-2) var(--spacing-p-3); /* 8px 12px */
+  gap: var(--spacing-p-1); /* 4px */
+}
+
+.itss-filter--medium {
+  height: 40px;
+  padding: 10px var(--spacing-p-4); /* 10px vertical — not a token */
+  gap: var(--spacing-p-1); /* 4px */
+}
+
+/* Button not-applied: asymmetric padding — icon left needs less room */
+.itss-filter--button.itss-filter--not-applied.itss-filter--small {
+  padding-left: var(--spacing-p-3);
+  padding-right: var(--spacing-p-4);
+}
+.itss-filter--button.itss-filter--not-applied.itss-filter--medium {
+  padding-left: var(--spacing-p-4);
+  padding-right: var(--spacing-p-5);
+}
+
+/* ── Disabled — keeps background, fades content only ───────────── */
+.itss-filter--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Label text ────────────────────────────────────────────────── */
+.itss-filter__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-size);          /* 12px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-caption-line-height); /* 16px */
+  color: var(--fg-primary);
+  position: relative;
+}
+
+.itss-filter--applied .itss-filter__label {
+  font-weight: var(--font-weight-bold);
+}
+
+.itss-filter--medium .itss-filter__label {
+  font-size: var(--type-body-size);          /* 14px */
+  line-height: var(--type-body-line-height); /* 20px */
+}
+
+.itss-filter--disabled .itss-filter__label {
+  color: var(--fg-disabled);
+}
+
+/* ── Label + count row ─────────────────────────────────────────── */
+.itss-filter__label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* tight — not a token */
+  position: relative;
+}
+
+.itss-filter__count {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-size);          /* 12px */
+  font-weight: var(--font-weight-bold);
+  line-height: var(--type-caption-line-height); /* 16px */
+  color: var(--fg-primary);
+}
+
+.itss-filter--medium .itss-filter__count {
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line-height);
+}
+
+/* ── Icon wrappers ─────────────────────────────────────────────── */
+.itss-filter__icon,
+.itss-filter__chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  color: var(--fg-primary);
+}
+
+.itss-filter--disabled .itss-filter__icon,
+.itss-filter--disabled .itss-filter__chevron {
+  color: var(--fg-disabled);
+}

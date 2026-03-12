@@ -1,0 +1,109 @@
+/* ── Container ────────────────────────────────────────────────── */
+.itss-menu {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding-top: var(--spacing-p-2);  /* 8px */
+  background: var(--bg-menu);
+  border-radius: 20px;              /* not a design token */
+  box-shadow: var(--shadow-strong);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ── Title bar ────────────────────────────────────────────────── */
+.itss-menu__title-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-3);              /* 12px */
+  padding: var(--spacing-p-1) var(--spacing-p-4) var(--spacing-p-3) var(--spacing-p-3);
+  /* 4px 16px 12px 12px */
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.itss-menu__title-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-p-1) 0 var(--spacing-p-1) var(--spacing-p-1); /* 4px 0 4px 4px */
+  overflow: hidden;
+}
+
+.itss-menu__title {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-title-3-size);         /* 16px */
+  font-weight: var(--type-title-3-weight);     /* 700 */
+  line-height: var(--type-title-3-line-height);/* 24px */
+  letter-spacing: var(--type-title-3-tracking);/* -0.02em */
+  color: var(--fg-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Search bar ───────────────────────────────────────────────── */
+.itss-menu__search-wrap {
+  padding: var(--spacing-p-1) var(--spacing-p-3) var(--spacing-p-3);
+  /* 4px 12px 12px */
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.itss-menu__search-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-2); /* 8px */
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  padding: 10px var(--spacing-p-4); /* 10px 16px — 10px not a token */
+  overflow: hidden;
+}
+
+.itss-menu__search-icon {
+  flex-shrink: 0;
+  color: var(--fg-secondary);
+}
+
+.itss-menu__search-input {
+  flex: 1 1 0;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-primary);
+  padding: 0;
+}
+
+.itss-menu__search-input::placeholder {
+  color: var(--fg-secondary);
+}
+
+/* ── Scrollable options area ──────────────────────────────────── */
+.itss-menu__scrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Native scrollbar — matches Figma's 6px thumb */
+.itss-menu__scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.itss-menu__scrollable::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 6px 0;
+}
+
+.itss-menu__scrollable::-webkit-scrollbar-thumb {
+  background: var(--bg-disabled);
+  border-radius: 100px;
+}

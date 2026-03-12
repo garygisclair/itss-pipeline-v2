@@ -1,0 +1,84 @@
+/* ── Card container ───────────────────────────────────────────── */
+.itss-alert-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-large); /* 24px */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ── Alert body ───────────────────────────────────────────────── */
+.itss-alert-dialog__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-p-6); /* 24px */
+}
+
+/* Extra gap between icon and content when icon is present */
+.itss-alert-dialog__body--with-icon {
+  gap: var(--spacing-gap-6); /* 24px */
+}
+
+/* ── Scalable icon ────────────────────────────────────────────── */
+.itss-alert-dialog__icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+/* Icon color per type — sets currentColor for SVG fills */
+.itss-alert-dialog--confirmation .itss-alert-dialog__icon { color: var(--fg-status-success); }
+.itss-alert-dialog--warning      .itss-alert-dialog__icon { color: var(--fg-status-warning); }
+.itss-alert-dialog--attention    .itss-alert-dialog__icon { color: var(--fg-status-attention); }
+
+/* ── Text content ─────────────────────────────────────────────── */
+.itss-alert-dialog__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-gap-4); /* 16px */
+  width: 100%;
+  text-align: center;
+}
+
+.itss-alert-dialog__title {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-title-1-size);         /* 24px */
+  font-weight: var(--type-title-1-weight);     /* 700 */
+  line-height: var(--type-title-1-line-height);/* 32px */
+  letter-spacing: var(--type-title-1-tracking);/* -0.02em */
+  color: var(--fg-primary);
+  white-space: nowrap;
+}
+
+.itss-alert-dialog__description {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-secondary);
+  width: 100%;
+  margin: 0;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.itss-alert-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-gap-2); /* 8px */
+  padding: 0 var(--spacing-p-6) var(--spacing-p-6); /* 0 24px 24px */
+  background: var(--bg-elevated);
+}
+
+/* Buttons stretch equally to fill footer width */
+.itss-alert-dialog__btn {
+  flex: 1 1 0 !important;
+  max-width: 400px !important;
+  min-width: 80px !important;
+}

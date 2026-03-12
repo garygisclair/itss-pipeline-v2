@@ -1,0 +1,103 @@
+/* ── Container (full-width banner, no border-radius) ──────────── */
+.itss-page-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-gap-4);  /* 16px */
+  padding: var(--spacing-p-3) var(--spacing-p-3) var(--spacing-p-3) var(--spacing-p-4);
+  /* 12px 12px 12px 16px */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Type backgrounds ─────────────────────────────────────────── */
+.itss-page-notice--attention    { background: var(--bg-destructive); }
+.itss-page-notice--information  { background: var(--bg-accent); }
+.itss-page-notice--confirmation { background: #288034; } /* --fg-status-success value; no solid bg token */
+.itss-page-notice--general      { background: var(--bg-inverse); }
+
+/* ── Icon wrapper (white on fill) ─────────────────────────────── */
+.itss-page-notice__icon-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 6px 0;
+  /* Force icon to white against solid background */
+  filter: brightness(0) invert(1);
+}
+
+/* ── Content area ─────────────────────────────────────────────── */
+.itss-page-notice__content-area {
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 40px;
+  padding: var(--spacing-p-1) var(--spacing-p-1) var(--spacing-p-1) 0;
+  min-width: 0;
+}
+
+/* ── Text block ───────────────────────────────────────────────── */
+.itss-page-notice__content {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itss-page-notice__title {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-on-accent); /* white */
+}
+
+.itss-page-notice__body {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-on-accent); /* white */
+}
+
+/* ── Action link (white, underlined) ──────────────────────────── */
+.itss-page-notice__action {
+  flex-shrink: 0;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-on-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.itss-page-notice__action:hover { opacity: 0.85; }
+
+/* ── Dismiss button (white icon on fill) ──────────────────────── */
+.itss-page-notice__dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+  position: relative;
+  transition: background 0.1s ease;
+}
+
+.itss-page-notice__dismiss:hover  { background: var(--state-hover-on-fill); }
+.itss-page-notice__dismiss:active { background: var(--state-pressed-on-fill); }

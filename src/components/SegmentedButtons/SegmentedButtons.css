@@ -1,0 +1,24 @@
+/* ── Container ────────────────────────────────────────────────── */
+
+.itss-seg-btns {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-1);        /* 4px */
+  padding: var(--spacing-p-1);      /* 4px */
+  border: 1px solid var(--fg-secondary);
+  border-radius: var(--radius-full); /* 48px — full pill */
+}
+
+/* ── Sizes ────────────────────────────────────────────────────── */
+
+.itss-seg-btns--large { height: 48px; }
+.itss-seg-btns--small { height: 40px; }
+
+/* ── Inner button overrides ───────────────────────────────────── */
+
+/* Buttons fill equal width and full height of container */
+.itss-seg-btns .itss-seg-btn {
+  flex: 1;
+  height: 100%;
+  border-radius: var(--radius-large); /* 24px — inner pill */
+}

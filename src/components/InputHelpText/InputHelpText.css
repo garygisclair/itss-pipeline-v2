@@ -1,0 +1,54 @@
+.itss-input-help-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 100%;
+  padding-top: 8px;
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--fg-secondary);
+}
+
+/* ── Helper text container ───────────────────────────────────── */
+
+.itss-input-help-text__helper {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  min-width: 1px;
+}
+
+.itss-input-help-text__helper--error {
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.itss-input-help-text__help {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+/* ── Error icon ──────────────────────────────────────────────── */
+
+.itss-input-help-text__error-icon {
+  flex-shrink: 0;
+  color: var(--fg-destructive);
+}
+
+/* ── Error state colors ──────────────────────────────────────── */
+
+.itss-input-help-text--error .itss-input-help-text__help,
+.itss-input-help-text--error .itss-input-help-text__count {
+  color: var(--fg-destructive);
+}
+
+/* ── Character count ─────────────────────────────────────────── */
+
+.itss-input-help-text__count {
+  flex-shrink: 0;
+  text-align: right;
+  white-space: nowrap;
+}

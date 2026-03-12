@@ -1,0 +1,71 @@
+.itss-table-cell-progress-donut {
+  position: relative;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  padding: 14px var(--spacing-p-4); /* 14px vertical — no spacing token at this step */
+  overflow: hidden;
+}
+
+/* State layer */
+.itss-table-cell-progress-donut::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  transition: background 0.1s ease;
+}
+
+.itss-table-cell-progress-donut:hover::before {
+  background: var(--state-hover);
+}
+
+.itss-table-cell-progress-donut--selected::before {
+  background: var(--state-selected);
+}
+
+/* Focused — same bg as hover + accent outline */
+.itss-table-cell-progress-donut:focus-within {
+  outline: 2px solid var(--border-accent);
+  outline-offset: -2px;
+}
+
+.itss-table-cell-progress-donut:focus-within::before {
+  background: var(--state-focused);
+}
+
+/* Inner content — sits above ::before */
+.itss-table-cell-progress-donut__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  flex: 1;
+  min-width: 0;
+}
+
+/* Donut faded in disabled state */
+.itss-table-cell-progress-donut--disabled .itss-table-cell-progress-donut__donut {
+  opacity: 0.3;
+}
+
+/* Label */
+.itss-table-cell-progress-donut__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-tracking);
+  color: var(--fg-primary);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itss-table-cell-progress-donut--disabled .itss-table-cell-progress-donut__label {
+  color: var(--fg-disabled);
+}

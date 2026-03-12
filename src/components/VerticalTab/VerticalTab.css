@@ -1,0 +1,83 @@
+/* ── Base ─────────────────────────────────────────────────────── */
+
+.itss-vtab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-3);            /* 12px */
+  padding: 6px 0;                       /* 6px top/bottom — no token (not on 4px scale) */
+  width: 180px;
+  border-radius: 8px;                   /* no 8px radius token */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* State layer */
+.itss-vtab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-vtab:not(.itss-vtab--disabled):hover::before  { opacity: 0.04; }
+.itss-vtab:not(.itss-vtab--disabled):active::before { opacity: 0.08; }
+
+/* ── Selection indicator ──────────────────────────────────────── */
+
+.itss-vtab__indicator {
+  align-self: stretch;
+  flex-shrink: 0;
+  width: 3px;
+  border-radius: 3px;
+  background: transparent;
+  position: relative;                   /* stacks above ::before */
+}
+
+.itss-vtab--selected .itss-vtab__indicator {
+  background: var(--fg-primary);
+}
+
+.itss-vtab--disabled.itss-vtab--selected .itss-vtab__indicator {
+  background: var(--fg-disabled);
+}
+
+/* ── Label ────────────────────────────────────────────────────── */
+
+.itss-vtab__label {
+  flex: 1;
+  padding: var(--spacing-p-1) var(--spacing-p-3) var(--spacing-p-1) 0; /* 4px 12px 4px 0 */
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+  color: var(--fg-secondary);
+  text-align: left;
+  position: relative;                         /* stacks above ::before */
+}
+
+/* Selected — bold + primary color */
+.itss-vtab--selected .itss-vtab__label {
+  font-weight: var(--type-body-bold-weight);  /* 700 */
+  color: var(--fg-primary);
+}
+
+/* Hover — unselected label shifts to primary color */
+.itss-vtab:not(.itss-vtab--disabled):hover .itss-vtab__label {
+  color: var(--fg-primary);
+}
+
+/* Disabled */
+.itss-vtab--disabled {
+  cursor: not-allowed;
+}
+
+.itss-vtab--disabled .itss-vtab__label {
+  color: var(--fg-disabled);
+}

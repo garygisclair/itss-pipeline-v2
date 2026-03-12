@@ -1,0 +1,8 @@
+/* ── Container ────────────────────────────────────────────────── */
+.itss-menu-options {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--spacing-p-2); /* 8px */
+  width: 100%;
+  box-sizing: border-box;
+}

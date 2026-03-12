@@ -1,0 +1,121 @@
+/* Contact Button — node 3510:1865
+   States: default, copied (2s after click)
+   Tooltip: shows on icon button hover (CSS) + forced visible when copied (class) */
+
+/* ── Container ───────────────────────────────────────────── */
+
+.itss-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: var(--spacing-p-1) var(--spacing-p-1) var(--spacing-p-1) var(--spacing-p-4);
+  font-family: var(--font-family-primary);
+}
+
+/* ── Left content ────────────────────────────────────────── */
+
+.itss-contact-btn__content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  flex-shrink: 0;
+}
+
+.itss-contact-btn__name {
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+  white-space: nowrap;
+}
+
+.itss-contact-btn__email {
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  white-space: nowrap;
+}
+
+/* ── Icon button ─────────────────────────────────────────── */
+
+.itss-contact-btn__icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: var(--bg-primary-bright);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  overflow: visible; /* tooltip overflows */
+  color: var(--fg-primary);
+}
+
+/* State layer */
+.itss-contact-btn__icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+.itss-contact-btn__icon-btn:hover::before  { opacity: 0.04; }
+.itss-contact-btn__icon-btn:active::before { opacity: 0.08; }
+
+/* Copied: show pressed state permanently */
+.itss-contact-btn__icon-btn--copied::before { opacity: 0.08; }
+
+/* ── Tooltip ─────────────────────────────────────────────── */
+
+.itss-contact-btn__tooltip {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-inverse);
+  color: var(--fg-on-inverse);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  padding: var(--spacing-p-2) var(--spacing-p-3);
+  border-radius: 8px;
+  box-shadow: var(--shadow-strong);
+  white-space: nowrap;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+/* Arrow pointing up (on-bottom placement) */
+.itss-contact-btn__tooltip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bg-inverse);
+}
+
+/* Show on hover */
+.itss-contact-btn__icon-btn:hover .itss-contact-btn__tooltip {
+  opacity: 1;
+}
+
+/* Force visible when copied */
+.itss-contact-btn__icon-btn--copied .itss-contact-btn__tooltip {
+  opacity: 1;
+}

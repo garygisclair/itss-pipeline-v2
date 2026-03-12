@@ -1,0 +1,63 @@
+/* ── Base ──────────────────────────────────────────────────────── */
+
+.itss-pagination-page-tab {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-gap-1);        /* 4px */
+  padding: 6px var(--spacing-p-3) 0; /* 6px top (off-scale), 12px h, 0 bottom */
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ── State layer ───────────────────────────────────────────────── */
+
+.itss-pagination-page-tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-pagination-page-tab:hover::before   { opacity: 0.04; }
+.itss-pagination-page-tab:active::before  { opacity: 0.08; }
+
+/* ── Label ─────────────────────────────────────────────────────── */
+
+.itss-pagination-page-tab__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  position: relative;                         /* above ::before */
+}
+
+.itss-pagination-page-tab--active .itss-pagination-page-tab__label {
+  font-weight: var(--type-body-bold-weight);  /* 700 */
+  color: var(--fg-primary);
+}
+
+/* ── Indicator bar ─────────────────────────────────────────────── */
+
+.itss-pagination-page-tab__indicator {
+  width: 20px;
+  height: 2px;
+  border-radius: 1px;
+  background: transparent;
+  position: relative;                         /* above ::before */
+  flex-shrink: 0;
+}
+
+.itss-pagination-page-tab--active .itss-pagination-page-tab__indicator {
+  background: var(--fg-primary);
+}

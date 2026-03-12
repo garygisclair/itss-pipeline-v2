@@ -1,0 +1,134 @@
+.itss-input-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Label area ───────────────────────────────────────────── */
+
+.itss-input-field__label-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-1);
+  padding-bottom: var(--spacing-p-2);
+}
+
+.itss-input-field__subtitle {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-caption-line-height);
+  color: var(--fg-secondary);
+}
+
+/* ── Form field box ───────────────────────────────────────── */
+
+.itss-input-field__field {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-4);
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: var(--spacing-p-4);
+  padding-right: var(--spacing-p-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.1s ease;
+}
+
+/* Sizes */
+
+.itss-input-field__field--large {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.itss-input-field__field--small {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Hover (enabled only) */
+
+.itss-input-field__field:not(.itss-input-field__field--disabled):not(.itss-input-field__field--readonly):not(.itss-input-field__field--error):hover {
+  border-color: var(--border-strong);
+}
+
+/* Focus (enabled only — strong border, not accent) */
+
+.itss-input-field__field:not(.itss-input-field__field--disabled):not(.itss-input-field__field--readonly):not(.itss-input-field__field--error):focus-within {
+  border-color: var(--border-strong);
+}
+
+/* Error */
+
+.itss-input-field__field--error {
+  border-color: var(--fg-destructive);
+}
+
+/* Disabled */
+
+.itss-input-field__field--disabled {
+  background: var(--bg-secondary);
+  cursor: not-allowed;
+}
+
+/* Read-only */
+
+.itss-input-field__field--readonly {
+  background: var(--bg-secondary);
+}
+
+/* ── Native input ─────────────────────────────────────────── */
+
+.itss-input-field__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+}
+
+.itss-input-field__input::placeholder {
+  color: var(--fg-secondary);
+}
+
+.itss-input-field__field--disabled .itss-input-field__input {
+  cursor: not-allowed;
+  color: var(--fg-disabled);
+}
+
+.itss-input-field__field--readonly .itss-input-field__input {
+  cursor: default;
+}
+
+/* ── Prefix / Suffix ──────────────────────────────────────── */
+
+.itss-input-field__prefix,
+.itss-input-field__suffix {
+  flex-shrink: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+  white-space: nowrap;
+}
+
+/* ── Icons ────────────────────────────────────────────────── */
+
+.itss-input-field__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--fg-secondary);
+}

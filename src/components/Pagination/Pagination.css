@@ -1,0 +1,58 @@
+/* ── Container ────────────────────────────────────────────────── */
+
+.itss-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);   /* 8px */
+  padding: 2px 0;              /* 2px — off 4px scale, confirmed from Figma spacing/25 */
+}
+
+/* ── Pages row ────────────────────────────────────────────────── */
+
+.itss-pagination__pages {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Arrow buttons ────────────────────────────────────────────── */
+
+.itss-pagination__arrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  color: var(--fg-primary);
+  transition: opacity 0.1s ease;
+}
+
+.itss-pagination__arrow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-pagination__arrow:hover::before  { opacity: 0.04; }
+.itss-pagination__arrow:active::before { opacity: 0.08; }
+
+.itss-pagination__arrow:disabled {
+  opacity: 0.32;
+  cursor: default;
+  pointer-events: none;
+}
+
+.itss-pagination__arrow > * {
+  position: relative; /* above ::before */
+}

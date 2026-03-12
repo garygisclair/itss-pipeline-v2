@@ -1,0 +1,95 @@
+/* ── Container ────────────────────────────────────────────────── */
+
+.itss-popover {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-medium);   /* 16px */
+  box-shadow: var(--shadow-strong);
+  width: 320px;
+  overflow: hidden;
+}
+
+/* ── Header (with-title variant) ─────────────────────────────── */
+
+.itss-popover__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-gap-4);             /* 16px */
+  padding: var(--spacing-p-3)            /* 12px top */
+           var(--spacing-p-3)            /* 12px right */
+           var(--spacing-p-2)            /* 8px bottom */
+           var(--spacing-p-4);           /* 16px left */
+}
+
+.itss-popover__title {
+  flex: 1;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-title-3-size);         /* 16px */
+  font-weight: var(--type-title-3-weight);     /* 700 */
+  line-height: var(--type-title-3-line-height); /* 24px */
+  letter-spacing: var(--type-title-3-tracking); /* -0.02em */
+  color: var(--fg-primary);
+  padding: var(--spacing-p-1) 0;        /* 4px top/bottom — matches inner padding frame */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Content (with-title variant) ────────────────────────────── */
+
+.itss-popover__content {
+  padding: 0 var(--spacing-p-4) var(--spacing-p-4); /* 0 16px 16px */
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--type-body-weight);      /* 400 */
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-primary);
+}
+
+/* ── Content (no-title variant) ──────────────────────────────── */
+
+.itss-popover__content--no-title {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-gap-4);             /* 16px */
+  padding: var(--spacing-p-3)            /* 12px top */
+           var(--spacing-p-3)            /* 12px right */
+           var(--spacing-p-3)            /* 12px bottom */
+           var(--spacing-p-4);           /* 16px left */
+}
+
+.itss-popover__body {
+  flex: 1;
+  padding: var(--spacing-p-1) 0;        /* 4px top/bottom — matches inner padding frame */
+}
+
+/* ── Close button ─────────────────────────────────────────────── */
+
+.itss-popover__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);     /* 48px — gives pill/circle */
+  color: var(--fg-primary);
+  position: relative;
+}
+
+/* State layer */
+.itss-popover__close::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-popover__close:hover::before  { opacity: 0.04; }
+.itss-popover__close:active::before { opacity: 0.08; }

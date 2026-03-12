@@ -1,0 +1,113 @@
+/* ── Container ────────────────────────────────────────────────── */
+.itss-section-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-gap-4);          /* 16px */
+  padding: var(--spacing-p-3) var(--spacing-p-3) var(--spacing-p-3) var(--spacing-p-4);
+  /* 12px 12px 12px 16px */
+  border-radius: var(--radius-medium); /* 16px */
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Strong backgrounds (type-specific) ───────────────────────── */
+.itss-section-notice--attention.itss-section-notice--strong    { background: var(--bg-status-attention-subtle); }
+.itss-section-notice--warning.itss-section-notice--strong      { background: var(--bg-status-warning-subtle); }
+.itss-section-notice--confirmation.itss-section-notice--strong { background: var(--bg-status-success-subtle); }
+.itss-section-notice--information.itss-section-notice--strong  { background: var(--bg-accent-subtle); }
+.itss-section-notice--general.itss-section-notice--strong      { background: var(--bg-tertiary); }
+
+/* ── Subtle background (same for all types) ───────────────────── */
+.itss-section-notice--subtle { background: var(--bg-secondary); }
+
+/* ── Icon wrapper ─────────────────────────────────────────────── */
+.itss-section-notice__icon-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 6px 0; /* vertically centers 16px icon with first line of body text */
+}
+
+/* Icon color per type — sets currentColor for SVG fills */
+.itss-section-notice--attention    .itss-section-notice__icon-wrap { color: var(--fg-status-attention); }
+.itss-section-notice--warning      .itss-section-notice__icon-wrap { color: var(--fg-status-warning); }
+.itss-section-notice--confirmation .itss-section-notice__icon-wrap { color: var(--fg-status-success); }
+.itss-section-notice--information  .itss-section-notice__icon-wrap { color: var(--fg-information); }
+
+/* ── Content area (flex-wrap: text left, action right) ────────── */
+.itss-section-notice__content-area {
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 40px; /* row-gap col-gap — action flows right or wraps below */
+  padding: var(--spacing-p-1) var(--spacing-p-1) var(--spacing-p-1) 0; /* 4px 4px 4px 0 */
+  min-width: 0;
+}
+
+/* ── Text block (title + body) ────────────────────────────────── */
+.itss-section-notice__content {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itss-section-notice__title {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-bold);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-primary);
+}
+
+.itss-section-notice__body {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+}
+
+/* ── Action link ──────────────────────────────────────────────── */
+.itss-section-notice__action {
+  flex-shrink: 0;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.itss-section-notice__action:hover { opacity: 0.75; }
+
+/* ── Dismiss button ───────────────────────────────────────────── */
+.itss-section-notice__dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-primary);
+  position: relative;
+  transition: background 0.1s ease;
+}
+
+.itss-section-notice__dismiss:hover  { background: var(--state-hover); }
+.itss-section-notice__dismiss:active { background: var(--state-pressed); }

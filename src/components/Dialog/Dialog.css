@@ -1,0 +1,166 @@
+/* ── Container ─────────────────────────────────────────────────── */
+.itss-dialog {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-medium); /* 16px */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────────── */
+.itss-dialog--small  { width: 480px; height: 496px; }
+.itss-dialog--medium { width: 616px; height: 496px; }
+.itss-dialog--large  { width: 896px; height: 592px; }
+
+/* ── Header ────────────────────────────────────────────────────── */
+.itss-dialog__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-2);
+  align-items: center;
+  padding: var(--spacing-p-4); /* 16px all sides */
+  background: var(--bg-elevated);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.itss-dialog__header-content {
+  display: flex;
+  gap: var(--spacing-gap-4); /* 16px */
+  align-items: flex-start;
+  width: 100%;
+}
+
+.itss-dialog__title-frame {
+  display: flex;
+  flex: 1 1 0;
+  gap: var(--spacing-gap-2);
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.itss-dialog__title-wrap {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-gap-1);
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: var(--spacing-p-2);
+  min-width: 0;
+}
+
+.itss-dialog__title {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-title-2-size);          /* 20px */
+  font-weight: var(--type-title-2-weight);      /* 700 */
+  line-height: var(--type-title-2-line-height); /* 28px */
+  letter-spacing: var(--type-title-2-tracking); /* -0.02em */
+  color: var(--fg-primary);
+  width: 100%;
+}
+
+.itss-dialog__subtitle {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-secondary);
+  width: 100%;
+}
+
+/* ── Header icon buttons (close + back) ───────────────────────── */
+.itss-dialog__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+  border: none;
+  cursor: pointer;
+  color: var(--fg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.itss-dialog__icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+.itss-dialog__icon-btn:hover::before  { opacity: 0.06; }
+.itss-dialog__icon-btn:active::before { opacity: 0.12; }
+
+/* ── Grabber (mobile sheet handle) ────────────────────────────── */
+.itss-dialog__grabber {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  border-radius: 3px;
+  background: var(--border-medium);
+}
+
+/* ── Body ──────────────────────────────────────────────────────── */
+.itss-dialog__body {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 var(--spacing-p-6) var(--spacing-p-6); /* 0 24px 24px */
+  overflow: hidden;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.itss-dialog__body-placeholder {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-disabled);
+  border-radius: var(--radius-medium); /* 16px */
+  overflow: hidden;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  color: var(--fg-secondary);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* ── Footer ────────────────────────────────────────────────────── */
+.itss-dialog__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-6); /* 24px */
+  padding: var(--spacing-p-3) var(--spacing-p-4); /* 12px 16px */
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  flex-shrink: 0;
+}
+
+.itss-dialog__footer-actions {
+  display: flex;
+  flex: 1 1 0;
+  gap: var(--spacing-gap-2); /* 8px */
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}

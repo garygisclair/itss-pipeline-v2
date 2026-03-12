@@ -1,0 +1,162 @@
+/* CTA Button — node 124:1999
+   Variants: primary | secondary | tertiary | borderless
+   Sizes:    large | medium | small
+   States:   default, hover, pressed, disabled, loading
+
+   State layer uses ::before pseudo-element (no JS state needed).
+   Primary uses on-fill state tokens (lighter overlay on accent bg).
+   All others use default state tokens (dark overlay on light bg). */
+
+.itss-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-weight: 700;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* State layer overlay */
+.itss-cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+/* ── Sizes ──────────────────────────────────────────────────── */
+
+.itss-cta-btn--large  { height: 48px; padding: 0 var(--spacing-p-6); max-width: 480px; font-size: 16px; line-height: 24px; letter-spacing: -0.02em; }
+.itss-cta-btn--medium { height: 40px; padding: 0 var(--spacing-p-5); max-width: 400px; font-size: 14px; line-height: 20px; }
+.itss-cta-btn--small  { height: 32px; padding: 0 var(--spacing-p-4); max-width: 320px; font-size: 14px; line-height: 20px; }
+
+/* ── Primary ──────────────────────────────────────────────── */
+
+.itss-cta-btn--primary {
+  background: var(--bg-accent);
+  color: var(--fg-on-accent);
+  border: none;
+}
+.itss-cta-btn--primary::before          { background: #ffffff; }
+.itss-cta-btn--primary:hover::before    { opacity: 0.16; }
+.itss-cta-btn--primary:active::before   { opacity: 0.24; }
+
+/* Loading: white spinner on accent bg */
+.itss-cta-btn--primary .itss-cta-btn__spinner {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+}
+
+/* Disabled */
+.itss-cta-btn--primary:disabled {
+  background: var(--bg-disabled);
+  color: var(--fg-on-disabled);
+}
+
+/* ── Secondary ────────────────────────────────────────────── */
+
+.itss-cta-btn--secondary {
+  background: transparent;
+  color: var(--fg-information);
+  border: 1px solid var(--border-accent);
+}
+.itss-cta-btn--secondary::before        { background: var(--bg-accent); }
+.itss-cta-btn--secondary:hover::before  { opacity: 0.04; }
+.itss-cta-btn--secondary:active::before { opacity: 0.08; }
+
+.itss-cta-btn--secondary:disabled {
+  color: var(--fg-disabled);
+  border-color: var(--border-disabled);
+}
+
+/* ── Tertiary ─────────────────────────────────────────────── */
+
+.itss-cta-btn--tertiary {
+  background: transparent;
+  color: var(--fg-primary);
+  border: 1px solid var(--border-medium);
+}
+.itss-cta-btn--tertiary::before        { background: #000000; }
+.itss-cta-btn--tertiary:hover::before  { opacity: 0.04; }
+.itss-cta-btn--tertiary:active::before { opacity: 0.08; }
+
+.itss-cta-btn--tertiary:disabled {
+  color: var(--fg-disabled);
+  border-color: var(--border-disabled);
+}
+
+/* ── Borderless ───────────────────────────────────────────── */
+
+.itss-cta-btn--borderless {
+  background: transparent;
+  color: var(--fg-primary);
+  border: none;
+}
+
+/* Tighter padding — no border to compensate for. Large confirmed via Figma (p-3=12px).
+   Medium/small borderless padding not yet verified — TODO check nodes 160:1237, 160:1261 */
+.itss-cta-btn--borderless.itss-cta-btn--large  { padding: 0 var(--spacing-p-3); }
+.itss-cta-btn--borderless.itss-cta-btn--medium { padding: 0 10px; } /* TODO: token when confirmed */
+.itss-cta-btn--borderless.itss-cta-btn--small  { padding: 0 8px; }  /* TODO: token when confirmed */
+
+.itss-cta-btn--borderless::before        { background: #000000; }
+.itss-cta-btn--borderless:hover::before  { opacity: 0.04; }
+.itss-cta-btn--borderless:active::before { opacity: 0.08; }
+
+.itss-cta-btn--borderless:disabled {
+  color: var(--fg-disabled);
+}
+
+/* ── Disabled (shared) ────────────────────────────────────── */
+
+.itss-cta-btn:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Loading ──────────────────────────────────────────────── */
+
+.itss-cta-btn--loading {
+  pointer-events: none;
+}
+
+/* ── Content / Loading overlay ────────────────────────────── */
+
+/* Content wrapper — hidden when loading but keeps button width */
+.itss-cta-btn__content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+}
+.itss-cta-btn--loading .itss-cta-btn__content {
+  visibility: hidden;
+}
+
+/* Spinner centered absolutely over the hidden content */
+.itss-cta-btn__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Icons ────────────────────────────────────────────────── */
+
+.itss-cta-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

@@ -1,0 +1,7 @@
+.itss-table-column {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: max-content;
+  overflow: hidden;
+}

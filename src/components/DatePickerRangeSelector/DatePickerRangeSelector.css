@@ -1,0 +1,14 @@
+/* ── Date Picker Range Selector — 141×32px highlight pill ─────── */
+
+.itss-dp-range-selector {
+  display: flex;
+  height: 32px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.itss-dp-range-selector__half {
+  flex: 1;
+  height: 100%;
+  background: var(--bg-accent-subtle);
+}

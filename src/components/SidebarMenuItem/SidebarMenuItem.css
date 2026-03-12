@@ -1,0 +1,117 @@
+.itss-sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  color: var(--fg-primary);
+  transition: background 0.1s ease, color 0.1s ease;
+  box-sizing: border-box;
+}
+
+/* ── Collapsed: icon-only pill ──────────────────────────── */
+.itss-sidebar-menu-item--collapsed {
+  width: 64px;
+  height: 48px;
+  justify-content: center;
+  padding: 14px 0;
+}
+
+/* ── Expanded ────────────────────────────────────────────── */
+.itss-sidebar-menu-item--expanded {
+  width: 240px;
+  height: 48px;
+}
+
+.itss-sidebar-menu-item--expanded.itss-sidebar-menu-item--site {
+  padding: 8px 32px 8px 16px;
+}
+
+.itss-sidebar-menu-item--expanded.itss-sidebar-menu-item--tool {
+  padding: 8px 40px 8px 8px;
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+.itss-sidebar-menu-item--mobile {
+  width: 240px;
+  height: 48px;
+}
+
+.itss-sidebar-menu-item--mobile.itss-sidebar-menu-item--site {
+  padding: 8px 32px 8px 16px;
+}
+
+.itss-sidebar-menu-item--mobile.itss-sidebar-menu-item--tool {
+  padding: 8px 40px 8px 8px;
+}
+
+/* ── Inner row ───────────────────────────────────────────── */
+.itss-sidebar-menu-item__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Icon wrapper ────────────────────────────────────────── */
+.itss-sidebar-menu-item__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+/* ── Name ────────────────────────────────────────────────── */
+.itss-sidebar-menu-item__name {
+  flex: 1;
+  font-family: var(--font-family-primary);
+  font-weight: 400;
+  color: var(--fg-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.1s ease;
+}
+
+.itss-sidebar-menu-item--expanded .itss-sidebar-menu-item__name {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.itss-sidebar-menu-item--mobile .itss-sidebar-menu-item__name {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* ── Trailing icon (chevron or external-link) ────────────── */
+.itss-sidebar-menu-item__trailing,
+.itss-sidebar-menu-item__chevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+/* ── Hover state ─────────────────────────────────────────── */
+.itss-sidebar-menu-item:hover,
+.itss-sidebar-menu-item--hover {
+  background: var(--bg-accent);
+  color: var(--fg-on-accent);
+}
+
+.itss-sidebar-menu-item:hover .itss-sidebar-menu-item__name,
+.itss-sidebar-menu-item--hover .itss-sidebar-menu-item__name {
+  color: var(--fg-on-accent);
+}
+
+/* Icon wrap gets white circle; icon inside inherits blue from color */
+.itss-sidebar-menu-item:hover .itss-sidebar-menu-item__icon-wrap,
+.itss-sidebar-menu-item--hover .itss-sidebar-menu-item__icon-wrap {
+  background: var(--bg-primary);
+  color: var(--bg-accent);
+}

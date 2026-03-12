@@ -1,0 +1,157 @@
+/* ── Base — horizontal (default) ──────────────────────────────── */
+
+.itss-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-gap-2);    /* 8px — between indicator row and labels */
+  width: 100px;
+}
+
+/* ── Indicator row (horizontal) ───────────────────────────────── */
+
+.itss-progress-step__indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-1);    /* 4px — between lines and icon */
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* ── Connector lines — horizontal ─────────────────────────────── */
+
+.itss-progress-step__line {
+  flex: 1;
+  height: 4px;
+  min-width: 0;
+  border-radius: 2px;
+}
+
+/* Round only the icon-facing end of each line */
+.itss-progress-step__line--trail {
+  border-radius: 0 2px 2px 0;
+}
+.itss-progress-step__line--lead {
+  border-radius: 2px 0 0 2px;
+}
+
+/* ── Icon ─────────────────────────────────────────────────────── */
+
+.itss-progress-step__icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* ── Labels (horizontal) ──────────────────────────────────────── */
+
+.itss-progress-step__labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.itss-progress-step__title {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+  color: var(--fg-secondary);
+  width: 100%;
+}
+
+.itss-progress-step__subtitle {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  color: var(--fg-secondary);
+  width: 100%;
+}
+
+/* ── State — line colors ──────────────────────────────────────── */
+
+.itss-progress-step--incomplete .itss-progress-step__line {
+  background: var(--fg-disabled);
+}
+
+.itss-progress-step--latest .itss-progress-step__line,
+.itss-progress-step--complete .itss-progress-step__line {
+  background: var(--bg-accent);
+}
+
+.itss-progress-step--blocked .itss-progress-step__line--trail {
+  background: var(--bg-accent);
+}
+.itss-progress-step--blocked .itss-progress-step__line--lead {
+  background: var(--fg-disabled);
+}
+
+/* ── State — title color / weight ─────────────────────────────── */
+
+.itss-progress-step--incomplete .itss-progress-step__title {
+  color: var(--fg-secondary);
+}
+
+.itss-progress-step--latest .itss-progress-step__title {
+  font-weight: var(--type-body-bold-weight);  /* 700 */
+  color: var(--fg-primary);
+}
+
+.itss-progress-step--complete .itss-progress-step__title,
+.itss-progress-step--blocked .itss-progress-step__title {
+  color: var(--fg-primary);
+}
+
+/* ── Vertical layout ──────────────────────────────────────────── */
+
+.itss-progress-step--vertical {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-p-4);     /* 16px — between indicator column and labels */
+  min-height: 56px;
+}
+
+/* Indicator becomes a vertical column */
+.itss-progress-step--vertical .itss-progress-step__indicator {
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  width: auto;
+}
+
+/* Vertical lines: 4px wide, flex:1 height */
+.itss-progress-step--vertical .itss-progress-step__line {
+  flex: 1;
+  width: 4px;
+  height: auto;
+  min-height: 0;
+}
+
+/* Round the icon-facing end for vertical lines */
+.itss-progress-step--vertical .itss-progress-step__line--trail {
+  border-radius: 0 0 2px 2px;
+}
+.itss-progress-step--vertical .itss-progress-step__line--lead {
+  border-radius: 2px 2px 0 0;
+}
+
+/* Labels sit to the right, left-aligned, vertically centered with the icon */
+.itss-progress-step--vertical .itss-progress-step__labels {
+  align-items: flex-start;
+  align-self: center;
+  text-align: left;
+}
+
+.itss-progress-step--vertical .itss-progress-step__title,
+.itss-progress-step--vertical .itss-progress-step__subtitle {
+  width: auto;
+  white-space: nowrap;
+}
+
+/* Hide the phantom lines that exist only for alignment */
+.itss-progress-step--start .itss-progress-step__line--trail,
+.itss-progress-step--end   .itss-progress-step__line--lead {
+  background: transparent;
+}

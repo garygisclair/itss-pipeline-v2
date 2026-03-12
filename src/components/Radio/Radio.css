@@ -1,0 +1,115 @@
+/* ── Container ──────────────────────────────────────────────── */
+.itss-radio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 3px;        /* small: 3px pad → 18px control */
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* ── Hover / pressed ripple (36px circle, overflows container) ─ */
+.itss-radio::before {
+  content: '';
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.itss-radio:hover::before    { opacity: 0.04; }
+.itss-radio:active::before   { opacity: 0.08; }
+.itss-radio--pressed::before { opacity: 0.08; }
+.itss-radio--focused::before { opacity: 0 !important; } /* focus uses ring, not ripple */
+.itss-radio--disabled::before { opacity: 0 !important; }
+
+/* ── Large size: 24px control, no padding ───────────────────── */
+.itss-radio--large {
+  padding: 0;
+}
+
+/* ── Visual circle ──────────────────────────────────────────── */
+.itss-radio__control {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-primary);
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.itss-radio--large .itss-radio__control {
+  width: 24px;
+  height: 24px;
+}
+
+/* ── Focus ring (::before on control, inset -1px) ───────────── */
+.itss-radio__control::before {
+  content: '';
+  position: absolute;
+  inset: -3px; /* outside the 1.5px border */
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: transparent;
+  pointer-events: none;
+}
+
+.itss-radio--focused .itss-radio__control::before,
+.itss-radio:focus-visible .itss-radio__control::before {
+  border-color: var(--border-accent);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Selected ───────────────────────────────────────────────── */
+.itss-radio--selected .itss-radio__control {
+  background: var(--fg-primary);
+  border-color: var(--fg-primary);
+}
+
+/* White dot */
+.itss-radio--selected .itss-radio__control::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.itss-radio--large.itss-radio--selected .itss-radio__control::after {
+  width: 8px;
+  height: 8px;
+}
+
+/* ── Disabled ───────────────────────────────────────────────── */
+.itss-radio--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.itss-radio--disabled .itss-radio__control {
+  border-color: var(--border-disabled);
+}
+
+.itss-radio--selected.itss-radio--disabled .itss-radio__control {
+  background: var(--bg-disabled);
+  border-color: var(--bg-disabled);
+}

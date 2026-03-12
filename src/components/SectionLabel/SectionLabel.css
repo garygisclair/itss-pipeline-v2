@@ -1,0 +1,20 @@
+/* ── Container ────────────────────────────────────────────────── */
+.itss-section-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-p-2) var(--spacing-p-4) var(--spacing-p-1); /* 8px 16px 4px */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Text ─────────────────────────────────────────────────────── */
+.itss-section-label__text {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-secondary);
+  text-align: left;
+  width: 100%;
+}

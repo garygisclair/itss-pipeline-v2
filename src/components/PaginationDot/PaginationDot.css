@@ -1,0 +1,27 @@
+/* ── Base ──────────────────────────────────────────────────────── */
+
+.itss-pagination-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--fg-secondary);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.1s ease, border-color 0.1s ease;
+}
+
+/* ── Selected ──────────────────────────────────────────────────── */
+
+.itss-pagination-dot--selected {
+  background: var(--fg-primary);
+  border-color: var(--fg-primary);
+}
+
+/* ── Hover ─────────────────────────────────────────────────────── */
+
+.itss-pagination-dot:not(.itss-pagination-dot--selected):hover {
+  border-color: var(--fg-primary);
+}

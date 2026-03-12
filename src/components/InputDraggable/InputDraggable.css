@@ -1,0 +1,14 @@
+.itss-input-draggable {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  color: var(--fg-secondary);
+  cursor: grab;
+  flex-shrink: 0;
+}
+
+.itss-input-draggable:active {
+  cursor: grabbing;
+}

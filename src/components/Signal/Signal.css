@@ -1,0 +1,19 @@
+.itss-signal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px var(--spacing-p-2); /* 4px vertical (no p-1 token), 8px horizontal */
+  background: var(--bg-accent-subtle);
+  border-radius: var(--radius-full);
+}
+
+.itss-signal__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-signal-2-size);
+  font-weight: var(--type-signal-2-weight);
+  line-height: var(--type-signal-2-line-height);
+  letter-spacing: var(--type-signal-2-tracking);
+  text-transform: uppercase;
+  color: #002a69; /* Figma: blue/blue-700 — no semantic token in this system */
+  white-space: nowrap;
+}

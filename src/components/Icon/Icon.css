@@ -1,0 +1,17 @@
+/* Icon — wraps SVG icons from src/icons/
+   Name + size resolve to {name}-{size}.svg
+   Color inherits from currentColor by default */
+
+.itss-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* Placeholder for missing icons — visible in dev, obvious */
+.itss-icon--missing {
+  display: inline-block;
+  background: #ff00ff22;
+  border: 1px dashed #ff00ff;
+  border-radius: 2px;
+}

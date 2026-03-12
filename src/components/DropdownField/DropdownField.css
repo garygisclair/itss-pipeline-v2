@@ -1,0 +1,212 @@
+.itss-dropdown-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Label area ───────────────────────────────────────────── */
+
+.itss-dropdown-field__label-area {
+  padding-bottom: 8px;
+}
+
+/* ── Trigger wrap (relative anchor for menu) ──────────────── */
+
+.itss-dropdown-field__wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Form field box ───────────────────────────────────────── */
+
+.itss-dropdown-field__field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.1s ease;
+  outline: none;
+}
+
+/* Sizes */
+
+.itss-dropdown-field__field--large {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.itss-dropdown-field__field--small {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Chip mode reduces vertical padding to accommodate chip height */
+
+.itss-dropdown-field__field--chip.itss-dropdown-field__field--large {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.itss-dropdown-field__field--chip.itss-dropdown-field__field--small {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Hover */
+
+.itss-dropdown-field__field:not(.itss-dropdown-field__field--disabled):not(.itss-dropdown-field__field--readonly):not(.itss-dropdown-field__field--error):hover {
+  border-color: var(--border-strong);
+}
+
+/* Open / focused */
+
+.itss-dropdown-field__field--open:not(.itss-dropdown-field__field--error) {
+  border-color: var(--border-strong);
+}
+
+/* Error */
+
+.itss-dropdown-field__field--error {
+  border-color: var(--fg-destructive);
+}
+
+/* Disabled */
+
+.itss-dropdown-field__field--disabled {
+  background: var(--bg-secondary);
+  border-color: var(--border-medium);
+  cursor: not-allowed;
+}
+
+/* Read-only */
+
+.itss-dropdown-field__field--readonly {
+  background: var(--bg-secondary);
+  border-color: var(--border-medium);
+  cursor: default;
+}
+
+/* ── Color dot ────────────────────────────────────────────── */
+
+.itss-dropdown-field__dot {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--fg-primary);
+}
+
+/* ── Content container ────────────────────────────────────── */
+
+.itss-dropdown-field__container {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow: hidden;
+}
+
+/* ── Value / placeholder text ─────────────────────────────── */
+
+.itss-dropdown-field__value {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itss-dropdown-field__placeholder {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itss-dropdown-field__field--disabled .itss-dropdown-field__value,
+.itss-dropdown-field__field--disabled .itss-dropdown-field__placeholder {
+  color: var(--fg-disabled);
+}
+
+/* ── Chips ────────────────────────────────────────────────── */
+
+.itss-dropdown-field__chip {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  background: var(--bg-tertiary);
+  border-radius: 100px;
+  overflow: hidden;
+  padding-right: 4px;
+}
+
+.itss-dropdown-field__chip-text {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--fg-primary);
+  white-space: nowrap;
+  padding: 8px 8px 8px 12px;
+}
+
+.itss-dropdown-field__chip-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--fg-primary);
+}
+
+.itss-dropdown-field__chip-close:hover {
+  background: var(--state-hover);
+}
+
+/* ── Chevron ──────────────────────────────────────────────── */
+
+.itss-dropdown-field__chevron {
+  flex-shrink: 0;
+  color: var(--fg-primary);
+  transition: transform 0.15s ease;
+}
+
+.itss-dropdown-field__chevron--open {
+  transform: rotate(180deg);
+}
+
+.itss-dropdown-field__field--disabled .itss-dropdown-field__chevron {
+  color: var(--fg-disabled);
+}
+
+/* ── Menu panel ───────────────────────────────────────────── */
+
+.itss-dropdown-field__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+}

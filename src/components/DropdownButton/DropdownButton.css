@@ -1,0 +1,124 @@
+/* ── Container ─────────────────────────────────────────────────── */
+.itss-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2); /* 8px */
+  border-radius: 8px; /* TODO: no matching radius token (between radius-small and radius-medium) */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  background: none;
+  box-sizing: border-box;
+}
+
+/* ── State layer ───────────────────────────────────────────────── */
+.itss-dropdown-btn::before {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-dropdown-btn--bordered::before  { inset: -1px; } /* covers the 1px border */
+.itss-dropdown-btn--borderless::before { inset: 0; }
+
+.itss-dropdown-btn:hover::before  { opacity: 0.04; }
+.itss-dropdown-btn:active::before { opacity: 0.08; }
+.itss-dropdown-btn--disabled::before { opacity: 0 !important; }
+
+/* ── Sizes ─────────────────────────────────────────────────────── */
+.itss-dropdown-btn--large {
+  min-height: 48px;
+  min-width: 96px;
+  padding: 14px var(--spacing-p-4); /* 14px 16px — vertical not a token */
+}
+
+.itss-dropdown-btn--small {
+  min-height: 40px;
+  min-width: 80px;
+  padding: 10px var(--spacing-p-4); /* 10px 16px — vertical not a token */
+}
+
+/* ── Border variants ───────────────────────────────────────────── */
+.itss-dropdown-btn--bordered {
+  border: 1px solid var(--border-medium);
+}
+
+.itss-dropdown-btn--borderless {
+  border: none;
+}
+
+/* ── Disabled ──────────────────────────────────────────────────── */
+.itss-dropdown-btn--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.itss-dropdown-btn--disabled.itss-dropdown-btn--bordered {
+  border-color: var(--border-disabled);
+}
+
+/* ── Content (label + value row) ───────────────────────────────── */
+.itss-dropdown-btn__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px; /* label ↔ value — not a spacing token */
+  flex-shrink: 0;
+  position: relative; /* stacks above ::before */
+}
+
+.itss-dropdown-btn__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-secondary);
+}
+
+.itss-dropdown-btn--disabled .itss-dropdown-btn__label {
+  color: var(--fg-disabled);
+}
+
+/* ── Value row ─────────────────────────────────────────────────── */
+.itss-dropdown-btn__value-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px; /* value ↔ secondary text — not a spacing token */
+  color: var(--fg-primary);
+}
+
+.itss-dropdown-btn--disabled .itss-dropdown-btn__value-wrap {
+  color: var(--fg-disabled);
+}
+
+.itss-dropdown-btn__value {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-bold);      /* 700 */
+  line-height: var(--type-body-line-height); /* 20px */
+}
+
+.itss-dropdown-btn__secondary {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--font-weight-bold);      /* 700 */
+  line-height: var(--type-body-line-height); /* 20px */
+}
+
+/* ── Chevron icon ──────────────────────────────────────────────── */
+.itss-dropdown-btn__chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative; /* stacks above ::before */
+  color: var(--fg-primary);
+}
+
+.itss-dropdown-btn--disabled .itss-dropdown-btn__chevron {
+  color: var(--fg-disabled);
+}

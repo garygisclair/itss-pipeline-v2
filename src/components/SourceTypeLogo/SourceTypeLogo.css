@@ -1,0 +1,11 @@
+.itss-source-type-logo {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.itss-source-type-logo--missing {
+  display: inline-block;
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-large);
+}

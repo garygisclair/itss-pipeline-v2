@@ -1,0 +1,18 @@
+/* ── Date Picker Day Label — 45×20px column header ────────────── */
+
+.itss-dp-day-label {
+  width: 48px; /* matches date button cell width */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}

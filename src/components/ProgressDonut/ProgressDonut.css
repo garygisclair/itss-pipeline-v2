@@ -1,0 +1,14 @@
+.itss-progress-donut {
+  display: block;
+  flex-shrink: 0;
+}
+
+.itss-progress-donut__track {
+  fill: none;
+  stroke: var(--fg-disabled);
+}
+
+.itss-progress-donut__fill {
+  fill: none;
+  stroke: #119c4b; /* Brand/Green/G5 — TODO: add token once confirmed */
+}

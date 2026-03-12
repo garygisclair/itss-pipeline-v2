@@ -1,0 +1,60 @@
+/* StateLayer
+   An absolute overlay that communicates interaction state.
+   Parent must have: position: relative; overflow: hidden (or matching border-radius).
+
+   States:  enabled | hover | pressed | selected | focused
+   Types:   default (dark, for light surfaces)
+            heavy   (darker, for stronger emphasis)
+            on-fill (light, for accent/colored surfaces) */
+
+.itss-state-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ── enabled: no fill ───────────────────────────────────────── */
+.itss-state-layer--enabled {
+  background: transparent;
+}
+
+/* ── default type ───────────────────────────────────────────── */
+.itss-state-layer--default.itss-state-layer--hover {
+  background: var(--state-hover);
+}
+.itss-state-layer--default.itss-state-layer--pressed {
+  background: var(--state-pressed);
+}
+.itss-state-layer--default.itss-state-layer--selected {
+  background: var(--state-selected);
+}
+.itss-state-layer--default.itss-state-layer--focused {
+  background: var(--state-focused);
+  inset: -1px;
+  border-radius: inherit;
+  outline: 2px solid var(--border-accent);
+  outline-offset: -2px;
+}
+
+/* ── heavy type ─────────────────────────────────────────────── */
+.itss-state-layer--heavy.itss-state-layer--hover {
+  background: var(--state-hover-heavy);
+}
+.itss-state-layer--heavy.itss-state-layer--pressed {
+  background: var(--state-pressed-heavy);
+}
+.itss-state-layer--heavy.itss-state-layer--selected {
+  background: var(--state-selected-heavy);
+}
+
+/* ── on-fill type (for accent/colored surfaces) ─────────────── */
+.itss-state-layer--on-fill.itss-state-layer--hover {
+  background: var(--state-hover-on-fill);
+}
+.itss-state-layer--on-fill.itss-state-layer--pressed {
+  background: var(--state-pressed-on-fill);
+}
+.itss-state-layer--on-fill.itss-state-layer--selected {
+  background: var(--state-selected-on-fill);
+}

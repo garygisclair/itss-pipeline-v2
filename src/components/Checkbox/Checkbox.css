@@ -1,0 +1,141 @@
+/* ── Container ──────────────────────────────────────────────── */
+.itss-checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 3px;        /* small: 3px pad → 18px control */
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* ── Hover / pressed ripple (36px circle, overflows container) ─ */
+.itss-checkbox::before {
+  content: '';
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.itss-checkbox:hover::before    { opacity: 0.04; }
+.itss-checkbox:active::before   { opacity: 0.08; }
+.itss-checkbox--pressed::before { opacity: 0.08; }
+.itss-checkbox--focused::before { opacity: 0 !important; }
+.itss-checkbox--disabled::before { opacity: 0 !important; }
+
+/* ── Large size: 24px control, no padding ───────────────────── */
+.itss-checkbox--large {
+  padding: 0;
+}
+
+/* ── Visual square ──────────────────────────────────────────── */
+.itss-checkbox__control {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-primary);
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.itss-checkbox--large .itss-checkbox__control {
+  width: 24px;
+  height: 24px;
+}
+
+/* ── Focus ring (::before on control, rounded rect) ────────── */
+.itss-checkbox__control::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background: transparent;
+  pointer-events: none;
+}
+
+.itss-checkbox--focused .itss-checkbox__control::before,
+.itss-checkbox:focus-visible .itss-checkbox__control::before {
+  border-color: var(--border-accent);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Selected ───────────────────────────────────────────────── */
+.itss-checkbox--selected .itss-checkbox__control {
+  background: var(--fg-primary);
+  border-color: var(--fg-primary);
+}
+
+/* Checkmark — small (18px) */
+.itss-checkbox--selected .itss-checkbox__control::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 9px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -62%) rotate(45deg);
+}
+
+/* Checkmark — large (24px) */
+.itss-checkbox--large.itss-checkbox--selected .itss-checkbox__control::after {
+  width: 7px;
+  height: 12px;
+}
+
+/* ── Indeterminate ──────────────────────────────────────────── */
+.itss-checkbox--indeterminate .itss-checkbox__control {
+  background: var(--fg-primary);
+  border-color: var(--fg-primary);
+}
+
+/* Dash — small */
+.itss-checkbox--indeterminate .itss-checkbox__control::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Dash — large */
+.itss-checkbox--large.itss-checkbox--indeterminate .itss-checkbox__control::after {
+  width: 12px;
+}
+
+/* ── Disabled ───────────────────────────────────────────────── */
+.itss-checkbox--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.itss-checkbox--disabled .itss-checkbox__control {
+  border-color: var(--border-disabled);
+}
+
+.itss-checkbox--selected.itss-checkbox--disabled .itss-checkbox__control,
+.itss-checkbox--indeterminate.itss-checkbox--disabled .itss-checkbox__control {
+  background: var(--bg-disabled);
+  border-color: var(--bg-disabled);
+}

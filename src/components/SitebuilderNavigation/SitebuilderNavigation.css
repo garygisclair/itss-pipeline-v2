@@ -1,0 +1,83 @@
+/* ── Nav bar ───────────────────────────────────────────────────── */
+
+.itss-sb-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-6);       /* 24px */
+  width: 100%;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ── Left section ─────────────────────────────────────────────── */
+
+.itss-sb-nav__left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Site name */
+.itss-sb-nav__site-name {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  padding: 14px var(--spacing-p-6);           /* 14px v (off-scale), 24px h */
+  flex-shrink: 0;
+}
+
+/* Nav links row */
+.itss-sb-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-6);       /* 24px */
+}
+
+/* ── Right section ────────────────────────────────────────────── */
+
+.itss-sb-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);       /* 8px */
+  padding: var(--spacing-p-1) var(--spacing-p-6) var(--spacing-p-1) 0; /* 4px 24px 4px 0 */
+  flex-shrink: 0;
+}
+
+/* Icon buttons — 40×40px rounded pill */
+.itss-sb-nav__icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-primary);
+  padding: 0;
+}
+
+.itss-sb-nav__icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-sb-nav__icon-btn:hover::before  { opacity: 0.04; }
+.itss-sb-nav__icon-btn:active::before { opacity: 0.08; }
+
+.itss-sb-nav__icon-btn > * {
+  position: relative; /* above ::before */
+}

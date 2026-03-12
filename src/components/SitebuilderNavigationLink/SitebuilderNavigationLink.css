@@ -1,0 +1,52 @@
+/* ── Base ──────────────────────────────────────────────────────── */
+
+.itss-sb-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-gap-1);   /* 4px */
+  padding: 14px 0;             /* 14px v — off 4px scale, confirmed from Figma */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-primary);
+}
+
+/* ── Label ─────────────────────────────────────────────────────── */
+
+.itss-sb-nav-link__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+  white-space: nowrap;
+}
+
+.itss-sb-nav-link--active .itss-sb-nav-link__label {
+  font-weight: var(--type-body-bold-weight);  /* 700 */
+}
+
+/* ── Bottom indicator ─────────────────────────────────────────── */
+
+.itss-sb-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 100px;
+  background: var(--fg-secondary);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.itss-sb-nav-link:hover::after {
+  opacity: 1;
+}
+
+.itss-sb-nav-link--active::after {
+  background: var(--fg-primary);
+  opacity: 1;
+}

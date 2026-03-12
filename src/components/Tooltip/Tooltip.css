@@ -1,0 +1,126 @@
+/* Tooltip — node 235:710
+   Placements: on-top | on-bottom | on-left | on-right | free
+   Activated by CSS :hover on the wrapper — no JS state needed.
+
+   Arrow is a CSS border triangle (10px wide × 5px tall).
+   Direction is always toward the trigger element. */
+
+/* ── Wrapper ─────────────────────────────────────────────── */
+
+.itss-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Tooltip container ───────────────────────────────────── */
+
+.itss-tooltip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.itss-tooltip-wrapper:hover .itss-tooltip {
+  opacity: 1;
+}
+
+/* ── Bubble ──────────────────────────────────────────────── */
+
+.itss-tooltip__bubble {
+  background: var(--bg-inverse);
+  color: var(--fg-on-inverse);
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--type-body-line-height);
+  padding: var(--spacing-p-2) var(--spacing-p-3);
+  border-radius: 8px;
+  box-shadow: var(--shadow-strong);
+  white-space: nowrap;
+}
+
+/* ── Arrow ───────────────────────────────────────────────── */
+
+.itss-tooltip__arrow {
+  width: 0;
+  height: 0;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* on-top: arrow at bottom of tooltip, pointing down toward trigger */
+.itss-tooltip--on-top .itss-tooltip__arrow {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bg-inverse);
+}
+
+/* on-bottom: arrow at top of tooltip, pointing up toward trigger */
+.itss-tooltip--on-bottom .itss-tooltip__arrow {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bg-inverse);
+}
+
+/* on-left: arrow at right of tooltip, pointing right toward trigger */
+.itss-tooltip--on-left .itss-tooltip__arrow {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid var(--bg-inverse);
+}
+
+/* on-right: arrow at left of tooltip, pointing left toward trigger */
+.itss-tooltip--on-right .itss-tooltip__arrow {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--bg-inverse);
+}
+
+/* ── Placement positioning ───────────────────────────────── */
+
+/* on-top: column layout, bubble → arrow. Positioned above trigger. */
+.itss-tooltip--on-top {
+  flex-direction: column;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* on-bottom: column layout, arrow → bubble. Positioned below trigger. */
+.itss-tooltip--on-bottom {
+  flex-direction: column;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* on-left: row layout, bubble → arrow. Positioned left of trigger. */
+.itss-tooltip--on-left {
+  flex-direction: row;
+  right: calc(100% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* on-right: row layout, arrow → bubble. Positioned right of trigger. */
+.itss-tooltip--on-right {
+  flex-direction: row;
+  left: calc(100% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* free: no arrow, floats above trigger centered */
+.itss-tooltip--free {
+  flex-direction: column;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+}

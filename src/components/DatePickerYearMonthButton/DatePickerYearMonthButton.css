@@ -1,0 +1,46 @@
+/* ── Date Picker Year/Month Button — 95×44px pill ─────────────── */
+
+.itss-dp-ym-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 95px;
+  height: 44px;
+  padding: 12px 32px;
+  box-sizing: border-box;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-primary);
+  white-space: nowrap;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+}
+
+.itss-dp-ym-btn:hover {
+  background: var(--state-hover);
+}
+
+.itss-dp-ym-btn:active {
+  background: var(--state-pressed);
+}
+
+.itss-dp-ym-btn--selected {
+  background: var(--bg-accent-subtle);
+  border-color: var(--border-accent);
+  color: var(--fg-information);
+}
+
+.itss-dp-ym-btn--selected:hover {
+  background: var(--bg-accent-subtle);
+}
+
+.itss-dp-ym-btn:disabled {
+  color: var(--fg-disabled);
+  border-color: var(--border-disabled);
+  cursor: not-allowed;
+}

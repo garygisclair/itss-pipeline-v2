@@ -1,0 +1,8 @@
+/* Logo — SVG logo components
+   All logos render at their natural SVG dimensions by default.
+   Override with width/height props or CSS. */
+
+.itss-logo {
+  display: block;
+  flex-shrink: 0;
+}

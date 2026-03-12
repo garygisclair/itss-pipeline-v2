@@ -1,0 +1,140 @@
+.itss-date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* ── Wrap (relative anchor for picker dropdown) ───────────────── */
+
+.itss-date-field__wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Trigger button ──────────────────────────────────────────── */
+
+.itss-date-field__trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.1s ease;
+}
+
+.itss-date-field__trigger--large {
+  padding: 14px 16px;
+}
+
+.itss-date-field__trigger--small {
+  padding: 10px 16px;
+}
+
+/* Open (picker visible) */
+.itss-date-field__trigger--open {
+  border-color: var(--border-accent);
+}
+
+/* Error */
+.itss-date-field__trigger--error,
+.itss-date-field__trigger--error.itss-date-field__trigger--open {
+  border-color: var(--fg-destructive);
+}
+
+/* Disabled */
+.itss-date-field__trigger--disabled {
+  border-color: var(--border-subtle);
+  background: rgba(0, 0, 0, 0.02);
+  cursor: not-allowed;
+}
+
+/* Readonly */
+.itss-date-field__trigger--readonly {
+  border-color: var(--border-subtle);
+  background: rgba(0, 0, 0, 0.02);
+  cursor: default;
+}
+
+/* ── Calendar icon ───────────────────────────────────────────── */
+
+.itss-date-field__icon {
+  flex-shrink: 0;
+  color: var(--fg-secondary);
+}
+
+.itss-date-field__trigger--disabled .itss-date-field__icon {
+  color: var(--fg-disabled);
+}
+
+.itss-date-field__trigger--readonly .itss-date-field__icon {
+  color: var(--fg-disabled);
+}
+
+/* ── Text area ───────────────────────────────────────────────── */
+
+.itss-date-field__text {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itss-date-field__text--placeholder {
+  color: var(--fg-secondary);
+}
+
+.itss-date-field__text--value {
+  color: var(--fg-primary);
+}
+
+.itss-date-field__trigger--disabled .itss-date-field__text {
+  color: var(--fg-disabled);
+}
+
+/* ── Right-side elements ─────────────────────────────────────── */
+
+.itss-date-field__chevron {
+  flex-shrink: 0;
+  color: var(--fg-primary);
+  transition: transform 0.15s ease;
+}
+
+.itss-date-field__chevron--open {
+  transform: rotate(180deg);
+}
+
+.itss-date-field__clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--fg-secondary);
+}
+
+.itss-date-field__clear:hover {
+  color: var(--fg-primary);
+}
+
+/* ── Picker dropdown ─────────────────────────────────────────── */
+
+.itss-date-field__picker {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 200;
+}

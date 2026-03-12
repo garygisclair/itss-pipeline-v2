@@ -1,0 +1,278 @@
+/* ITSS Design Tokens — generated from Figma variable defs
+   File key: Hs9ISm2qKK4uN32U4Tti4C
+   Light mode: node 55:148 | Dark mode: node 55:142
+   Typography:  node 53:2166 */
+
+:root {
+  /* Background */
+  --bg-primary: #ffffff;
+  --bg-primary-bright: #ffffff;
+  --bg-secondary: #f7f7f7;
+  --bg-secondary-bright: #f7f7f7;
+  --bg-on-primary: #f7f7f7;
+  --bg-on-secondary: #ffffff;
+  --bg-tertiary: #0000001a;
+  --bg-elevated: #ffffff;
+  --bg-on-elevated: #f7f7f7;
+  --bg-menu: #ffffff;
+  --bg-disabled: #c7c7c7;
+  --bg-inverse: #363636;
+  --bg-strong: #191919;
+  --bg-accent: #0968f6;
+  --bg-accent-subtle: #d4e5fe;
+  --bg-destructive: #d50b0b;
+  --bg-status-attention-subtle: #ffdede;
+  --bg-status-success-subtle: #e0fae0;
+  --bg-status-warning-subtle: #fff8d5;
+
+  /* Foreground */
+  --fg-primary: #191919;
+  --fg-secondary: #707070;
+  --fg-disabled: #c7c7c7;
+  --fg-on-disabled: #ffffff;
+  --fg-on-inverse: #ffffff;
+  --fg-on-strong: #ffffff;
+  --fg-on-accent: #ffffff;
+  --fg-on-destructive: #ffffff;
+  --fg-information: #0968f6;
+  --fg-destructive: #d50b0b;
+  --fg-status-attention: #d50b0b;
+  --fg-status-success: #288034;
+  --fg-status-warning: #ffa800;
+
+  /* Border */
+  --border-subtle: #e5e5e5;
+  --border-medium: #8f8f8f;
+  --border-strong: #191919;
+  --border-accent: #0968f6;
+  --border-disabled: #c7c7c7;
+  --border-on-disabled: #ffffff;
+
+  /* State — default (on light surfaces) */
+  --state-hover: #0000000a;           /* rgba(0,0,0,0.04) */
+  --state-pressed: #00000014;         /* rgba(0,0,0,0.08) */
+  --state-selected: #0000001f;        /* rgba(0,0,0,0.12) */
+  --state-focused: #0000000a;         /* rgba(0,0,0,0.04) + accent border */
+  /* State — heavy (stronger emphasis) */
+  --state-hover-heavy: #00000014;     /* rgba(0,0,0,0.08) */
+  --state-pressed-heavy: #0000001f;   /* rgba(0,0,0,0.12) */
+  --state-selected-heavy: #00000029;  /* rgba(0,0,0,0.16) */
+  /* State — on-fill (on accent/colored surfaces) */
+  --state-hover-on-fill: #ffffff14;   /* rgba(255,255,255,0.08) */
+  --state-pressed-on-fill: #ffffff1f; /* rgba(255,255,255,0.12) */
+  --state-selected-on-fill: #ffffff29;/* rgba(255,255,255,0.16) */
+
+  /* Scrim */
+  --scrim-overlay: #00000052;
+  --scrim-image: #00000029;
+
+  /* Shadow / Elevation */
+  --shadow-subtle: 0px 4px 12px 0px rgba(0,0,0,0.07);
+  --shadow-strong: 0px 2px 7px rgba(0,0,0,0.15), 0px 5px 17px rgba(0,0,0,0.20);
+
+  /* Radius */
+  --radius-medium: 16px;
+  --radius-large: 24px;
+  --radius-x-large: 32px;
+  --radius-full: 48px;
+
+  /* Elevation / Shadow */
+  --shadow-subtle: 0 4px 12px 0 #00000012;
+  --shadow-strong: 0 5px 17px 0 #00000033, 0 2px 7px 0 #00000026;
+
+  /* Spacing — confirmed from Figma node 55:148 + component inspection (4px scale: n × 4 = px)
+     More tokens will be added here as components reveal them */
+  --spacing-p-0: 0px;
+  --spacing-p-1: 4px;
+  --spacing-p-2: 8px;
+  --spacing-p-3: 12px;
+  --spacing-p-4: 16px;
+  --spacing-p-5: 20px;
+  --spacing-p-6: 24px;
+  --spacing-p-8: 32px;
+  --spacing-p-10: 40px;
+  --spacing-p-12: 48px;
+  --spacing-p-20: 80px;
+  --spacing-m-2: 8px;
+  --spacing-m-3: 12px;
+  --spacing-m-10: 40px;
+  --spacing-gap-0: 0px;
+  --spacing-gap-1: 4px;
+  --spacing-gap-2: 8px;
+  --spacing-gap-3: 12px;
+  --spacing-gap-4: 16px;
+  --spacing-gap-5: 20px;
+  --spacing-gap-6: 24px;
+  --spacing-gap-8: 32px;
+  --spacing-gap-10: 40px;
+
+  /* Typography — family & weight */
+  --font-family-primary: "Market Sans", "Inter", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Typography — scale */
+  --type-display-1-size: 46px;
+  --type-display-1-weight: 700;
+  --type-display-1-line-height: 52px;
+  --type-display-1-tracking: -0.02em; /* Figma: -2% */
+
+  --type-display-2-size: 36px;
+  --type-display-2-weight: 700;
+  --type-display-2-line-height: 46px;
+  --type-display-2-tracking: -0.02em;
+
+  --type-display-3-size: 30px;
+  --type-display-3-weight: 700;
+  --type-display-3-line-height: 40px;
+  --type-display-3-tracking: -0.02em;
+
+  --type-title-1-size: 24px;
+  --type-title-1-weight: 700;
+  --type-title-1-line-height: 32px;
+  --type-title-1-tracking: -0.02em;
+
+  --type-title-2-size: 20px;
+  --type-title-2-weight: 700;
+  --type-title-2-line-height: 28px;
+  --type-title-2-tracking: -0.02em;
+
+  --type-title-3-size: 16px;
+  --type-title-3-weight: 700;
+  --type-title-3-line-height: 24px;
+  --type-title-3-tracking: -0.02em;
+
+  --type-subtitle-1-size: 20px;
+  --type-subtitle-1-weight: 400;
+  --type-subtitle-1-line-height: 28px;
+  --type-subtitle-1-tracking: 0px;
+
+  --type-subtitle-2-size: 16px;
+  --type-subtitle-2-weight: 400;
+  --type-subtitle-2-line-height: 24px;
+  --type-subtitle-2-tracking: 0px;
+
+  --type-body-size: 14px;
+  --type-body-weight: 400;
+  --type-body-line-height: 20px;
+  --type-body-tracking: 0px;
+
+  --type-body-bold-size: 14px;
+  --type-body-bold-weight: 700;
+  --type-body-bold-line-height: 20px;
+  --type-body-bold-tracking: 0px;
+
+  --type-caption-size: 12px;
+  --type-caption-weight: 400;
+  --type-caption-line-height: 16px;
+  --type-caption-tracking: 0px;
+
+  --type-caption-bold-size: 12px;
+  --type-caption-bold-weight: 700;
+  --type-caption-bold-line-height: 16px;
+  --type-caption-bold-tracking: 0px;
+
+  --type-signal-1-size: 14px;
+  --type-signal-1-weight: 400;
+  --type-signal-1-line-height: 20px;
+  --type-signal-1-tracking: 0.05em; /* Figma: 5% */
+
+  --type-signal-2-size: 10px;
+  --type-signal-2-weight: 700;
+  --type-signal-2-line-height: 12px;
+  --type-signal-2-tracking: 0.05em;
+
+  --type-link-large-size: 16px;
+  --type-link-large-weight: 400;
+  --type-link-large-line-height: 24px;
+  --type-link-large-tracking: 0px;
+
+  --type-link-medium-size: 14px;
+  --type-link-medium-weight: 400;
+  --type-link-medium-line-height: 20px;
+  --type-link-medium-tracking: 0px;
+
+  --type-link-medium-bold-size: 14px;
+  --type-link-medium-bold-weight: 700;
+  --type-link-medium-bold-line-height: 20px;
+  --type-link-medium-bold-tracking: 0px;
+
+  --type-link-small-size: 12px;
+  --type-link-small-weight: 400;
+  --type-link-small-line-height: 16px;
+  --type-link-small-tracking: 0px;
+}
+
+/* Typography utility classes */
+.itss-display-1 { font-family: var(--font-family-primary); font-size: var(--type-display-1-size); font-weight: var(--type-display-1-weight); line-height: var(--type-display-1-line-height); letter-spacing: var(--type-display-1-tracking); }
+.itss-display-2 { font-family: var(--font-family-primary); font-size: var(--type-display-2-size); font-weight: var(--type-display-2-weight); line-height: var(--type-display-2-line-height); letter-spacing: var(--type-display-2-tracking); }
+.itss-display-3 { font-family: var(--font-family-primary); font-size: var(--type-display-3-size); font-weight: var(--type-display-3-weight); line-height: var(--type-display-3-line-height); letter-spacing: var(--type-display-3-tracking); }
+.itss-title-1   { font-family: var(--font-family-primary); font-size: var(--type-title-1-size);   font-weight: var(--type-title-1-weight);   line-height: var(--type-title-1-line-height);   letter-spacing: var(--type-title-1-tracking); }
+.itss-title-2   { font-family: var(--font-family-primary); font-size: var(--type-title-2-size);   font-weight: var(--type-title-2-weight);   line-height: var(--type-title-2-line-height);   letter-spacing: var(--type-title-2-tracking); }
+.itss-title-3   { font-family: var(--font-family-primary); font-size: var(--type-title-3-size);   font-weight: var(--type-title-3-weight);   line-height: var(--type-title-3-line-height);   letter-spacing: var(--type-title-3-tracking); }
+.itss-subtitle-1 { font-family: var(--font-family-primary); font-size: var(--type-subtitle-1-size); font-weight: var(--type-subtitle-1-weight); line-height: var(--type-subtitle-1-line-height); letter-spacing: var(--type-subtitle-1-tracking); }
+.itss-subtitle-2 { font-family: var(--font-family-primary); font-size: var(--type-subtitle-2-size); font-weight: var(--type-subtitle-2-weight); line-height: var(--type-subtitle-2-line-height); letter-spacing: var(--type-subtitle-2-tracking); }
+.itss-body      { font-family: var(--font-family-primary); font-size: var(--type-body-size);      font-weight: var(--type-body-weight);      line-height: var(--type-body-line-height);      letter-spacing: var(--type-body-tracking); }
+.itss-body-bold { font-family: var(--font-family-primary); font-size: var(--type-body-bold-size); font-weight: var(--type-body-bold-weight); line-height: var(--type-body-bold-line-height); letter-spacing: var(--type-body-bold-tracking); }
+.itss-caption      { font-family: var(--font-family-primary); font-size: var(--type-caption-size);      font-weight: var(--type-caption-weight);      line-height: var(--type-caption-line-height);      letter-spacing: var(--type-caption-tracking); }
+.itss-caption-bold { font-family: var(--font-family-primary); font-size: var(--type-caption-bold-size); font-weight: var(--type-caption-bold-weight); line-height: var(--type-caption-bold-line-height); letter-spacing: var(--type-caption-bold-tracking); }
+.itss-signal-1  { font-family: var(--font-family-primary); font-size: var(--type-signal-1-size);  font-weight: var(--type-signal-1-weight);  line-height: var(--type-signal-1-line-height);  letter-spacing: var(--type-signal-1-tracking); text-transform: uppercase; }
+.itss-signal-2  { font-family: var(--font-family-primary); font-size: var(--type-signal-2-size);  font-weight: var(--type-signal-2-weight);  line-height: var(--type-signal-2-line-height);  letter-spacing: var(--type-signal-2-tracking); text-transform: uppercase; }
+.itss-link-large       { font-family: var(--font-family-primary); font-size: var(--type-link-large-size);       font-weight: var(--type-link-large-weight);       line-height: var(--type-link-large-line-height);       letter-spacing: var(--type-link-large-tracking); }
+.itss-link-medium      { font-family: var(--font-family-primary); font-size: var(--type-link-medium-size);      font-weight: var(--type-link-medium-weight);      line-height: var(--type-link-medium-line-height);      letter-spacing: var(--type-link-medium-tracking); }
+.itss-link-medium-bold { font-family: var(--font-family-primary); font-size: var(--type-link-medium-bold-size); font-weight: var(--type-link-medium-bold-weight); line-height: var(--type-link-medium-bold-line-height); letter-spacing: var(--type-link-medium-bold-tracking); }
+.itss-link-small       { font-family: var(--font-family-primary); font-size: var(--type-link-small-size);       font-weight: var(--type-link-small-weight);       line-height: var(--type-link-small-line-height);       letter-spacing: var(--type-link-small-tracking); }
+
+[data-dark="true"] {
+  /* Background */
+  --bg-primary: #000000;
+  --bg-primary-bright: #282828;
+  --bg-secondary: #191919;
+  --bg-secondary-bright: #363636;
+  --bg-on-primary: #191919;
+  --bg-on-secondary: #191919;
+  --bg-tertiary: #ffffff29;
+  --bg-elevated: #282828;
+  --bg-on-elevated: #282828;
+  --bg-menu: #191919;
+  --bg-disabled: #707070;
+  --bg-inverse: #e5e5e5;
+  --bg-strong: #f7f7f7;
+  --bg-accent: #4d93fc;
+  --bg-accent-subtle: #002a69;
+  --bg-destructive: #ff5c5c;
+  --bg-status-attention-subtle: #570303;
+  --bg-status-success-subtle: #1b561a;
+  --bg-status-warning-subtle: #855f00;
+
+  /* Foreground */
+  --fg-primary: #f7f7f7;
+  --fg-secondary: #8f8f8f;
+  --fg-disabled: #707070;
+  --fg-on-disabled: #191919;
+  --fg-on-inverse: #191919;
+  --fg-on-strong: #191919;
+  --fg-on-accent: #191919;
+  --fg-on-destructive: #191919;
+  --fg-information: #84b4fb;
+  --fg-status-attention: #ffa0a0;
+  --fg-status-success: #a6f0a5;
+  --fg-status-warning: #ffe58a;
+
+  /* Border */
+  --border-subtle: #363636;
+  --border-medium: #707070;
+  --border-strong: #ffffff;
+  --border-accent: #4d93fc;
+  --border-disabled: #363636;
+  --border-on-disabled: #191919;
+
+  /* State */
+  --state-hover: #ffffff1f;
+  --state-pressed: #ffffff29;
+  --state-selected: #ffffff33;
+
+  /* Scrim */
+  --scrim-overlay: #000000a3;
+  --scrim-image: #00000029;
+}

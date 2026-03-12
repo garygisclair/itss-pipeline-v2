@@ -1,0 +1,109 @@
+/* LinkButton
+   Levels: strong | subtle-primary | subtle-secondary | inverse | subtle-inverse | disabled
+   Sizes:  large | medium | small
+   Renders as <a> (with href) or <button> (without) */
+
+.itss-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family-primary);
+  white-space: nowrap;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Sizes ──────────────────────────────────────────────────── */
+
+.itss-link-btn--large  { font-size: var(--type-link-large-size);  line-height: var(--type-link-large-line-height); }
+.itss-link-btn--medium { font-size: var(--type-link-medium-size); line-height: var(--type-link-medium-line-height); }
+.itss-link-btn--small  { font-size: var(--type-link-small-size);  line-height: var(--type-link-small-line-height); }
+
+/* ── Levels ─────────────────────────────────────────────────── */
+
+/* strong: bold, no underline → hover: underline appears */
+.itss-link-btn--strong {
+  font-weight: 700;
+  color: var(--fg-primary);
+  text-decoration: none;
+}
+/* Title 3 tracking only applies at 16px (large) */
+.itss-link-btn--large.itss-link-btn--strong {
+  letter-spacing: -0.02em;
+}
+.itss-link-btn--strong:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* subtle-primary: regular, underline → hover: dimmed */
+.itss-link-btn--subtle-primary {
+  font-weight: 400;
+  color: var(--fg-primary);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+.itss-link-btn--subtle-primary:hover {
+  opacity: 0.6;
+}
+
+/* subtle-secondary: regular, underline, muted → hover: becomes primary */
+.itss-link-btn--subtle-secondary {
+  font-weight: 400;
+  color: var(--fg-secondary);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+.itss-link-btn--subtle-secondary:hover {
+  color: var(--fg-primary);
+}
+
+/* inverse: regular, underline, on-inverse color → hover: dimmed */
+.itss-link-btn--inverse {
+  font-weight: 400;
+  color: var(--fg-on-inverse);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+.itss-link-btn--inverse:hover {
+  opacity: 0.6;
+}
+
+/* subtle-inverse: regular, no underline, on-inverse → hover: underline appears */
+.itss-link-btn--subtle-inverse {
+  font-weight: 400;
+  color: var(--fg-on-inverse);
+  text-decoration: none;
+}
+.itss-link-btn--subtle-inverse:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* disabled: regular, underline, muted, not interactive */
+.itss-link-btn--disabled,
+.itss-link-btn[disabled] {
+  font-weight: 400;
+  color: var(--fg-disabled);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Icons ──────────────────────────────────────────────────── */
+
+.itss-link-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.itss-link-btn__icon--leading  { width: 16px; height: 16px; }
+.itss-link-btn__icon--trailing { width: 12px; height: 12px; }

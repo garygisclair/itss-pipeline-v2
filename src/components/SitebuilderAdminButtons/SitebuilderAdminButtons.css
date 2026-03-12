@@ -1,0 +1,48 @@
+/* ── Pill container ────────────────────────────────────────────── */
+
+.itss-sb-admin-btns {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-4);        /* 16px */
+  padding: 10px var(--spacing-p-4); /* 10px v (off-scale), 16px h */
+  background: rgba(0, 0, 0, 0.64);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+
+.itss-sb-admin-btns__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);        /* 8px */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--fg-on-inverse);
+  transition: opacity 0.1s ease;
+}
+
+.itss-sb-admin-btns__btn:hover  { opacity: 0.72; }
+.itss-sb-admin-btns__btn:active { opacity: 0.56; }
+
+/* ── Label ─────────────────────────────────────────────────────── */
+
+.itss-sb-admin-btns__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);           /* 14px */
+  font-weight: var(--type-body-weight);       /* 400 */
+  line-height: var(--type-body-line-height);  /* 20px */
+  white-space: nowrap;
+}
+
+/* ── Divider ───────────────────────────────────────────────────── */
+
+.itss-sb-admin-btns__divider {
+  display: block;
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}

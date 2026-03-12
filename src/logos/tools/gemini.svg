@@ -1,0 +1,15 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="type=Gemini" clip-path="url(#clip0_2926_1397)">
+<path id="Vector" d="M48 24.048C41.7726 24.4302 35.8998 27.0764 31.4881 31.4881C27.0764 35.8998 24.4302 41.7726 24.048 48H23.952C23.5705 41.7724 20.9245 35.8993 16.5126 31.4874C12.1007 27.0755 6.22765 24.4295 0 24.048L0 23.952C6.22765 23.5705 12.1007 20.9245 16.5126 16.5126C20.9245 12.1007 23.5705 6.22765 23.952 0L24.048 0C24.4302 6.22743 27.0764 12.1002 31.4881 16.5119C35.8998 20.9236 41.7726 23.5698 48 23.952V24.048Z" fill="url(#paint0_radial_2926_1397)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_2926_1397" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(4.764 19.509) rotate(18.6832) scale(51.09 409.263)">
+<stop offset="0.067" stop-color="#9168C0"/>
+<stop offset="0.343" stop-color="#5684D1"/>
+<stop offset="0.672" stop-color="#1BA1E3"/>
+</radialGradient>
+<clipPath id="clip0_2926_1397">
+<rect width="48" height="48" fill="white"/>
+</clipPath>
+</defs>
+</svg>

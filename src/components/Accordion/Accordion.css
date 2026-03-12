@@ -1,0 +1,74 @@
+.itss-accordion {
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px; /* no 12px radius token */
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+
+.itss-accordion__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-10);             /* 40px */
+  padding: var(--spacing-p-2)             /* 8px top */
+           var(--spacing-p-2)             /* 8px right */
+           var(--spacing-p-2)             /* 8px bottom */
+           var(--spacing-p-5);            /* 20px left */
+  background: var(--bg-on-primary);
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+}
+
+.itss-accordion__title {
+  flex: 1;
+  font-family: var(--font-family-primary);
+  font-size: var(--type-title-3-size);        /* 16px */
+  font-weight: var(--type-title-3-weight);    /* 700 */
+  line-height: var(--type-title-3-line-height); /* 24px */
+  color: var(--fg-primary);
+}
+
+/* ── Toggle icon button ───────────────────────────────────────── */
+
+.itss-accordion__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  position: relative;
+  color: var(--fg-primary);
+}
+
+/* State layer via ::before */
+.itss-accordion__toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.itss-accordion__header:hover .itss-accordion__toggle::before  { opacity: 0.04; }
+.itss-accordion__header:active .itss-accordion__toggle::before { opacity: 0.08; }
+
+/* ── Content ──────────────────────────────────────────────────── */
+
+.itss-accordion__content {
+  background: var(--bg-primary);
+  padding: var(--spacing-p-4) var(--spacing-p-5); /* 16px 20px */
+  font-family: var(--font-family-primary);
+  font-size: var(--type-body-size);          /* 14px */
+  font-weight: var(--type-body-weight);      /* 400 */
+  line-height: var(--type-body-line-height); /* 20px */
+  color: var(--fg-secondary);
+}
