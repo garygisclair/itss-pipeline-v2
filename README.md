@@ -61,3 +61,27 @@ All components live in `src/components/`. Design tokens are in `src/tokens.css`.
 npm run build    # Production build
 npm run preview  # Preview production build locally
 ```
+
+## Troubleshooting
+
+**`npm install` errors or `npm run dev` fails with "vite: not found"**
+
+This usually means your npm version is too old. The repo requires **npm v9+**:
+
+```bash
+node --version   # should be v18 or higher
+npm --version    # should be v9 or higher
+
+# Upgrade npm if needed:
+npm install -g npm@latest
+```
+
+Then delete any partial install and start fresh:
+
+```bash
+rm -rf node_modules
+npm install
+npm run dev
+```
+
+Do **not** run `npm audit fix --force` — it can silently upgrade packages to incompatible major versions and break the build.
