@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@keyframes docs-blink {
+  0%           { opacity: 1; color: #DE458E; } /* pink-500    */
+  14%          { opacity: 1; color: #F3511B; } /* coral-500   */
+  28%          { opacity: 1; color: #E99A02; } /* marigold-500*/
+  42%          { opacity: 1; color: #3CC14E; } /* kiwi-500    */
+  56%          { opacity: 1; color: #1BBFCA; } /* teal-500    */
+  70%          { opacity: 1; color: #0968F6; } /* blue-500    */
+  84%          { opacity: 1; color: #583AEE; } /* violet-500  */
+  85%, 99%     { opacity: 0; color: #583AEE; }
+  100%         { opacity: 1; color: #DE458E; }
+}
+
+/* ── Docs page ─────────────────────────────────────────────────────────── */
+
+.docs-page {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.docs-back-bar {
+  background: var(--bg-inverse);
+  padding: var(--spacing-p-2) var(--spacing-p-6);
+  display: flex;
+  align-items: center;
+}
+
+.docs-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-on-inverse);
+  font-family: var(--font-family-primary);
+  font-size: var(--type-caption-bold-size);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--type-caption-bold-tracking);
+  line-height: var(--type-caption-bold-line-height);
+  padding: 0;
+  opacity: 0.72;
+  transition: opacity 0.1s ease;
+}
+
+.docs-back-btn:hover {
+  opacity: 1;
+}
+
+.docs-content {
+  flex: 1;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-p-12) var(--spacing-p-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-8);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+
+.docs-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-3);
+}
+
+.docs-eyebrow {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+.docs-hero__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-gap-4);
+  margin-bottom: var(--spacing-gap-4);
+}
+
+.docs-title {
+  margin: 0;
+  color: var(--fg-primary);
+}
+
+.docs-lead {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+/* ── Sections ────────────────────────────────────────────────────────────── */
+
+.docs-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-4);
+}
+
+.docs-section__heading {
+  margin: 0;
+  color: var(--fg-primary);
+  padding-bottom: var(--spacing-p-3);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.docs-section__body {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+/* ── Stats ───────────────────────────────────────────────────────────────── */
+
+.docs-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-gap-4);
+}
+
+.docs-stat {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-p-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-1);
+}
+
+.docs-stat__number {
+  margin: 0;
+  color: var(--fg-primary);
+}
+
+.docs-stat__label {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+/* ── Conventions ─────────────────────────────────────────────────────────── */
+
+.docs-conventions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-4);
+}
+
+.docs-convention {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-1);
+  padding: var(--spacing-p-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+}
+
+.docs-convention__title {
+  margin: 0;
+  color: var(--fg-primary);
+}
+
+/* ── Modal ───────────────────────────────────────────────────────────────── */
+
+.docs-scrim .itss-dialog__header {
+  display: none;
+}
+
+.docs-scrim .itss-dialog {
+  height: auto;
+  min-height: 460px;
+}
+
+.docs-scrim {
+  position: fixed;
+  inset: 0;
+  background: var(--scrim-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+}
+
+.docs-summary-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-gap-4);
+  padding: var(--spacing-p-8) 0;
+  color: var(--fg-primary);
+  text-align: center;
+}
+
+.docs-summary-body p {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+.docs-retro-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: calc(var(--type-caption-size) * 2);
+  margin: 0 0 var(--spacing-gap-3);
+  line-height: 1.8;
+  animation: docs-blink 1.4s step-start infinite;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Thumb circle ────────────────────────────────────────────────────────── */
+
+.docs-thumb-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.docs-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Code ────────────────────────────────────────────────────────────────── */
+
+.docs-code {
+  font-family: monospace;
+  font-size: var(--type-caption-bold-size);
+  background: var(--bg-accent-subtle);
+  color: var(--fg-information);
+  padding: 1px var(--spacing-p-1);
+  border-radius: 4px;
+}
+
+/* Remove fixed step width so labels fill available space */
+.docs-section .itss-progress-stepper--vertical .itss-progress-stepper__steps .itss-progress-step {
+  width: auto;
+}
+
+/* Allow stepper text to wrap within the docs page */
+.docs-section .itss-progress-step--vertical .itss-progress-step__labels {
+  flex: 1;
+  min-width: 0;
+  align-self: center;
+  margin-top: var(--spacing-p-3);
+  margin-bottom: var(--spacing-p-3);
+}
+
+.docs-section .itss-progress-step--vertical .itss-progress-step__title,
+.docs-section .itss-progress-step--vertical .itss-progress-step__subtitle {
+  white-space: normal;
+}
+
+.docs-section .itss-progress-step__title {
+  font-weight: var(--font-weight-bold);
+}

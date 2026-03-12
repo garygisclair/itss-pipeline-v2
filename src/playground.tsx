@@ -4,13 +4,30 @@
 // Design tokens are CSS variables: --bg-*, --fg-*, --spacing-*, etc.
 // ─────────────────────────────────────────────────────────────────────────
 
+import { useState } from 'react'
 import './playground.css'
 import { HubHeader } from './components/HubHeader/HubHeader'
 import { SitebuilderNavigation } from './components/SitebuilderNavigation/SitebuilderNavigation'
 import { Sidebar } from './components/Sidebar/Sidebar'
-import { EmptyState } from './components/EmptyState/EmptyState'
+import { SectionNotice } from './components/SectionNotice/SectionNotice'
+import { IconButton } from './components/IconButton/IconButton'
+import { Icon } from './components/Icon/Icon'
+
+const SAMPLE_PROMPT =
+  `I'm working in the ITSS Pipeline V2 project. Edit src/playground.tsx to build [describe your UI here]. ` +
+  `All components are in src/components/ — import them with relative paths. ` +
+  `Use design tokens from src/tokens.css for all colors, spacing, and typography. No hardcoded values.`
 
 export function Playground({ onBack }: { onBack: () => void }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(SAMPLE_PROMPT).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+
   return (
     <div className="pg-page">
 
@@ -49,8 +66,28 @@ export function Playground({ onBack }: { onBack: () => void }) {
 
         {/* ── Main content — edit below ───────────────────── */}
         <main className="pg-main pg-main--grid">
-          <div className="pg-empty-center">
-            <EmptyState type="no-records" />
+          <div className="pg-instruction">
+            <SectionNotice
+              type="information"
+              level="strong"
+              title="Ready to build?"
+              body="Point your AI assistant at src/playground.tsx and start building something amazing with the ITSS component library."
+            />
+            <div className="pg-prompt-block">
+              <p className="itss-caption pg-prompt-label">Sample prompt — paste into your AI</p>
+              <div className="pg-prompt-body">
+                <p className="itss-body pg-prompt-text">{SAMPLE_PROMPT}</p>
+                <div className={copied ? 'pg-copy-btn--copied' : undefined}>
+                  <IconButton
+                    icon={<Icon name={copied ? 'tick' : 'copy'} size={16} />}
+                    aria-label={copied ? 'Copied' : 'Copy prompt'}
+                    style="borderless"
+                    size="small"
+                    onClick={handleCopy}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </main>
       </div>

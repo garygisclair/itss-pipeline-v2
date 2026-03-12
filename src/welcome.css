@@ -36,10 +36,10 @@
 
 .wl-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: var(--spacing-gap-6);
   width: 100%;
-  max-width: 640px;
+  max-width: 900px;
 }
 
 .wl-card {
@@ -57,18 +57,6 @@
 .wl-card:hover {
   border-color: var(--border-medium);
   box-shadow: var(--shadow-subtle);
-}
-
-.wl-card__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-medium);
-  background: var(--bg-accent-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg-information);
-  flex-shrink: 0;
 }
 
 .wl-card__body {

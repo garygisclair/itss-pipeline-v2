@@ -2,6 +2,7 @@ import { StrictMode, useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Welcome } from './welcome'
 import { Playground } from './playground'
+import { Docs } from './docs'
 import './tokens.css'
 import './preview.css'
 import { Signal } from './components/Signal/Signal'
@@ -4116,14 +4117,15 @@ function Library({ onBack }: { onBack: () => void }) {
 }
 
 function App() {
-  const getViewFromHash = (): 'welcome' | 'library' | 'playground' => {
+  const getViewFromHash = (): 'welcome' | 'library' | 'playground' | 'docs' => {
     const hash = window.location.hash.slice(1)
     if (hash === 'playground') return 'playground'
+    if (hash === 'docs')       return 'docs'
     if (hash === 'library' || STORIES.some(s => s.id === hash)) return 'library'
     return 'welcome'
   }
 
-  const [view, setView] = useState<'welcome' | 'library' | 'playground'>(getViewFromHash)
+  const [view, setView] = useState<'welcome' | 'library' | 'playground' | 'docs'>(getViewFromHash)
 
   useEffect(() => {
     const handler = () => setView(getViewFromHash())
@@ -4146,9 +4148,15 @@ function App() {
     setView('playground')
   }
 
+  const goToDocs = () => {
+    window.location.hash = 'docs'
+    setView('docs')
+  }
+
   if (view === 'library')    return <Library    onBack={goToWelcome} />
   if (view === 'playground') return <Playground onBack={goToWelcome} />
-  return <Welcome onLibrary={goToLibrary} onPlayground={goToPlayground} />
+  if (view === 'docs')       return <Docs       onBack={goToWelcome} />
+  return <Welcome onLibrary={goToLibrary} onPlayground={goToPlayground} onDocs={goToDocs} />
 }
 
 createRoot(document.getElementById('root')!).render(
