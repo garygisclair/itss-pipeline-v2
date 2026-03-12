@@ -1,4 +1,3 @@
-import React from 'react'
 import './Sidebar.css'
 import { Icon } from '../Icon/Icon'
 import { SidebarMenuItem } from '../SidebarMenuItem/SidebarMenuItem'

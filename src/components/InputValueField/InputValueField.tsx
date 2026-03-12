@@ -1,4 +1,3 @@
-import React from 'react'
 import './InputValueField.css'
 import { InputTitle } from '../InputTitle/InputTitle'
 

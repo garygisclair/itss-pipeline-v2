@@ -1,4 +1,3 @@
-import React from 'react'
 import './InputTitle.css'
 import { Icon } from '../Icon/Icon'
 
