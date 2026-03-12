@@ -1,6 +1,6 @@
 # ITSS Pipeline V2
 
-A React component library for the eBay Hub design system, built with Figma MCP. Browse all components in the UI Library or use the Playground to prototype new experiences.
+A React component library for the eBay Hub design system, built with Figma MCP and Claude Code. Browse all components in the UI Library, prototype new experiences in the Playground, or read about the project in the About page.
 
 ## Prerequisites
 
@@ -27,8 +27,17 @@ Open [http://localhost:5173/itss-pipeline-v2/](http://localhost:5173/itss-pipeli
 
 | Section | Description |
 |---------|-------------|
-| **UI Library** | Browse all ITSS components, design tokens, and patterns |
-| **Playground** | Build and prototype using the component library |
+| **UI Library** | Browse 70+ ITSS components, 200+ design tokens, and patterns |
+| **Playground** | Build and prototype new Hub experiences using the component library |
+| **About** | The goal, how we built it, and the pipeline that powers it |
+
+## How it was built
+
+This project uses a Figma-to-React pipeline driven entirely by [Claude Code](https://claude.ai/claude-code) and the [Figma MCP](https://www.figma.com/developers/mcp):
+
+1. **Design tokens** extracted from Figma via `get_variable_defs` → `src/tokens.css`
+2. **Components** implemented from `get_design_context` → TSX + CSS, no scripts or intermediate specs
+3. **Zero magic numbers** — all colors, spacing, typography, and radii reference CSS custom properties
 
 ## Using the Playground
 
@@ -44,6 +53,7 @@ All components live in `src/components/`. Design tokens are in `src/tokens.css`.
 - [Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr) for SVG icons
 - Plain CSS with design tokens — no Tailwind, no CSS-in-JS
+- [Figma MCP](https://www.figma.com/developers/mcp) + [Claude Code](https://claude.ai/claude-code) as the build pipeline
 
 ## Other commands
 
