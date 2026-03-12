@@ -111,7 +111,7 @@ export function Docs({ onBack }: DocsProps) {
         </div>
 
         {/* Conventions */}
-        <div className="docs-section">
+        {/* <div className="docs-section">
           <h2 className="itss-title-2 docs-section__heading">Conventions</h2>
           <div className="docs-conventions">
             <div className="docs-convention">
@@ -131,10 +131,10 @@ export function Docs({ onBack }: DocsProps) {
               <p className="itss-body docs-section__body">Tokens are only added when confirmed from Figma — never inferred from patterns or guessed from neighboring values.</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* For contributors */}
-        <div className="docs-section">
+        {/* <div className="docs-section">
           <h2 className="itss-title-2 docs-section__heading">For contributors</h2>
           <p className="itss-body docs-section__body">
             New components are added by pointing Claude Code at a Figma node. Four MCP tools drive the entire workflow:
@@ -157,7 +157,7 @@ export function Docs({ onBack }: DocsProps) {
               <p className="itss-body docs-section__body">Visual inspection without code. Useful for checking layout and spacing when reference code isn't needed.</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
       {/* Summary modal */}
