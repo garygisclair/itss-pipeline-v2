@@ -4,8 +4,6 @@ import './docs.css'
 import { ProgressStepper } from './components/ProgressStepper/ProgressStepper'
 import { CtaButton } from './components/Button/CtaButton'
 import { Dialog } from './components/Dialog/Dialog'
-import { Icon } from './components/Icon/Icon'
-import { IconButton } from './components/IconButton/IconButton'
 
 const STEPS = [
   {
