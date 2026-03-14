@@ -3972,17 +3972,17 @@ function Library({ onBack }: { onBack: () => void }) {
   }
 
   const [activeId, setActiveId] = useState<string>(() => {
-    const hash = window.location.hash.slice(1)
-    return STORIES.some(s => s.id === hash) ? hash : defaultId
+    const page = new URLSearchParams(window.location.search).get('page')
+    return page && STORIES.some(s => s.id === page) ? page : defaultId
   })
 
   useEffect(() => {
     const handler = () => {
-      const hash = window.location.hash.slice(1)
-      setActiveId(STORIES.some(s => s.id === hash) ? hash : defaultId)
+      const page = new URLSearchParams(window.location.search).get('page')
+      setActiveId(page && STORIES.some(s => s.id === page) ? page : defaultId)
     }
-    window.addEventListener('hashchange', handler)
-    return () => window.removeEventListener('hashchange', handler)
+    window.addEventListener('popstate', handler)
+    return () => window.removeEventListener('popstate', handler)
   }, [defaultId])
 
   const active = STORIES.find(s => s.id === activeId) ?? STORIES[0]
@@ -4075,9 +4075,9 @@ function Library({ onBack }: { onBack: () => void }) {
                           {isOpen && subStories.map(s => (
                             <a
                               key={s.id}
-                              href={`#${s.id}`}
+                              href={`?view=library&page=${s.id}`}
                               className={['shell__item', 'shell__item--indented', s.id === activeId && 'shell__item--active'].filter(Boolean).join(' ')}
-                              onClick={() => setActiveId(s.id)}
+                              onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', `?view=library&page=${s.id}`); setActiveId(s.id) }}
                             >
                               {s.label}
                             </a>
@@ -4088,9 +4088,9 @@ function Library({ onBack }: { onBack: () => void }) {
                     {unsorted.map(s => (
                       <a
                         key={s.id}
-                        href={`#${s.id}`}
+                        href={`?view=library&page=${s.id}`}
                         className={['shell__item', s.id === activeId && 'shell__item--active'].filter(Boolean).join(' ')}
-                        onClick={() => setActiveId(s.id)}
+                        onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', `?view=library&page=${s.id}`); setActiveId(s.id) }}
                       >
                         {s.label}
                       </a>
@@ -4117,39 +4117,40 @@ function Library({ onBack }: { onBack: () => void }) {
 }
 
 function App() {
-  const getViewFromHash = (): 'welcome' | 'library' | 'playground' | 'docs' => {
-    const hash = window.location.hash.slice(1)
-    if (hash === 'playground') return 'playground'
-    if (hash === 'docs')       return 'docs'
-    if (hash === 'library' || STORIES.some(s => s.id === hash)) return 'library'
+  const getViewFromParams = (): 'welcome' | 'library' | 'playground' | 'docs' => {
+    const params = new URLSearchParams(window.location.search)
+    const v = params.get('view')
+    if (v === 'playground') return 'playground'
+    if (v === 'docs')       return 'docs'
+    if (v === 'library' || params.get('page')) return 'library'
     return 'welcome'
   }
 
-  const [view, setView] = useState<'welcome' | 'library' | 'playground' | 'docs'>(getViewFromHash)
+  const [view, setView] = useState<'welcome' | 'library' | 'playground' | 'docs'>(getViewFromParams)
 
   useEffect(() => {
-    const handler = () => setView(getViewFromHash())
-    window.addEventListener('hashchange', handler)
-    return () => window.removeEventListener('hashchange', handler)
+    const handler = () => setView(getViewFromParams())
+    window.addEventListener('popstate', handler)
+    return () => window.removeEventListener('popstate', handler)
   }, [])
 
   const goToWelcome = () => {
-    window.location.hash = ''
+    window.history.pushState(null, '', window.location.pathname)
     setView('welcome')
   }
 
   const goToLibrary = () => {
-    window.location.hash = 'library'
+    window.history.pushState(null, '', '?view=library')
     setView('library')
   }
 
   const goToPlayground = () => {
-    window.location.hash = 'playground'
+    window.history.pushState(null, '', '?view=playground')
     setView('playground')
   }
 
   const goToDocs = () => {
-    window.location.hash = 'docs'
+    window.history.pushState(null, '', '?view=docs')
     setView('docs')
   }
 
