@@ -1,7 +1,8 @@
-/* ITSS Design Tokens — generated from Figma variable defs
+/* ITSS Design Tokens — synced from Figma variable exports + code
    File key: Hs9ISm2qKK4uN32U4Tti4C
    Light mode: node 55:148 | Dark mode: node 55:142
-   Typography:  node 53:2166 */
+   Typography:  node 53:2166
+   Last synced: 2026-03-15 via token-to-figma pipeline */
 
 :root {
   /* Background */
@@ -20,7 +21,11 @@
   --bg-strong: #191919;
   --bg-accent: #0968f6;
   --bg-accent-subtle: #d4e5fe;
+  --bg-active: #d4e5fe;
+  --bg-static-white: #ffffff;
   --bg-destructive: #d50b0b;
+  --bg-status-attention: #d50b0b;
+  --bg-status-success: #288034;
   --bg-status-attention-subtle: #ffdede;
   --bg-status-success-subtle: #e0fae0;
   --bg-status-warning-subtle: #fff8d5;
@@ -34,17 +39,22 @@
   --fg-on-strong: #ffffff;
   --fg-on-accent: #ffffff;
   --fg-on-destructive: #ffffff;
+  --fg-accent: #0968f6;
   --fg-information: #0968f6;
   --fg-destructive: #d50b0b;
   --fg-status-attention: #d50b0b;
   --fg-status-success: #288034;
   --fg-status-warning: #ffa800;
+  --fg-status-on-attention: #ffffff;
+  --fg-status-on-success: #ffffff;
+  --fg-status-on-warning: #ffffff;
 
   /* Border */
   --border-subtle: #e5e5e5;
   --border-medium: #8f8f8f;
   --border-strong: #191919;
   --border-accent: #0968f6;
+  --border-attention: #d50b0b;
   --border-disabled: #c7c7c7;
   --border-on-disabled: #ffffff;
 
@@ -66,22 +76,27 @@
   --scrim-overlay: #00000052;
   --scrim-image: #00000029;
 
+  /* Logo */
+  --logo-red: #f02d2d;
+  --logo-blue: #0968f6;
+  --logo-yellow: #ffbd14;
+  --logo-green: #92c821;
+  --logo-grey: #363636;
+  --logo-dark-blue: #002a69;
+
   /* Shadow / Elevation */
   --shadow-subtle: 0px 4px 12px 0px rgba(0,0,0,0.07);
   --shadow-strong: 0px 2px 7px rgba(0,0,0,0.15), 0px 5px 17px rgba(0,0,0,0.20);
 
   /* Radius */
+  --radius-none: 0px;
+  --radius-small: 8px;
   --radius-medium: 16px;
   --radius-large: 24px;
   --radius-x-large: 32px;
   --radius-full: 48px;
 
-  /* Elevation / Shadow */
-  --shadow-subtle: 0 4px 12px 0 #00000012;
-  --shadow-strong: 0 5px 17px 0 #00000033, 0 2px 7px 0 #00000026;
-
-  /* Spacing — confirmed from Figma node 55:148 + component inspection (4px scale: n × 4 = px)
-     More tokens will be added here as components reveal them */
+  /* Spacing — complete set from Figma Dimension export (4px scale: n × 4 = px) */
   --spacing-p-0: 0px;
   --spacing-p-1: 4px;
   --spacing-p-2: 8px;
@@ -92,10 +107,19 @@
   --spacing-p-8: 32px;
   --spacing-p-10: 40px;
   --spacing-p-12: 48px;
+  --spacing-p-14: 56px;
+  --spacing-p-16: 64px;
   --spacing-p-20: 80px;
+  --spacing-m-0: 0px;
+  --spacing-m-1: 4px;
   --spacing-m-2: 8px;
   --spacing-m-3: 12px;
+  --spacing-m-4: 16px;
+  --spacing-m-5: 20px;
+  --spacing-m-6: 24px;
+  --spacing-m-8: 32px;
   --spacing-m-10: 40px;
+  --spacing-m-12: 48px;
   --spacing-gap-0: 0px;
   --spacing-gap-1: 4px;
   --spacing-gap-2: 8px;
@@ -105,6 +129,7 @@
   --spacing-gap-6: 24px;
   --spacing-gap-8: 32px;
   --spacing-gap-10: 40px;
+  --spacing-gap-12: 48px;
 
   /* Typography — family & weight */
   --font-family-primary: "Market Sans", "Inter", sans-serif;
@@ -240,7 +265,11 @@
   --bg-strong: #f7f7f7;
   --bg-accent: #4d93fc;
   --bg-accent-subtle: #002a69;
+  --bg-active: #002a69;
+  --bg-static-white: #ffffff;
   --bg-destructive: #ff5c5c;
+  --bg-status-attention: #ff5c5c;
+  --bg-status-success: #a6f0a5;
   --bg-status-attention-subtle: #570303;
   --bg-status-success-subtle: #1b561a;
   --bg-status-warning-subtle: #855f00;
@@ -254,18 +283,31 @@
   --fg-on-strong: #191919;
   --fg-on-accent: #191919;
   --fg-on-destructive: #191919;
+  --fg-accent: #4d93fc;
   --fg-information: #84b4fb;
   --fg-status-attention: #ffa0a0;
   --fg-status-success: #a6f0a5;
   --fg-status-warning: #ffe58a;
+  --fg-status-on-attention: #191919;
+  --fg-status-on-success: #191919;
+  --fg-status-on-warning: #191919;
 
   /* Border */
   --border-subtle: #363636;
   --border-medium: #707070;
   --border-strong: #ffffff;
   --border-accent: #4d93fc;
+  --border-attention: #ff5c5c;
   --border-disabled: #363636;
   --border-on-disabled: #191919;
+
+  /* Logo */
+  --logo-red: #ff5c5c;
+  --logo-blue: #4d93fc;
+  --logo-yellow: #ffe58a;
+  --logo-green: #aaed56;
+  --logo-grey: #f7f7f7;
+  --logo-dark-blue: #84b4fb;
 
   /* State */
   --state-hover: #ffffff1f;
